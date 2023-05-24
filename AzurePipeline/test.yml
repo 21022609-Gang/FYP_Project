@@ -19,7 +19,6 @@ steps:
   - task: WhiteSource@21
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
-      projectName: '$(projectName)'
 
   - task: SonarCloudPrepare@1
     inputs:
