@@ -12,7 +12,7 @@ steps:
 
   - script: |
       echo this is the hostname:
-      echo ---------------------
+      echo -----------------------
       echo $HOSTNAME
     displayName: Test Script 2
 
