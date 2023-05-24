@@ -1,0 +1,40 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: 'mycomputeragent'
+
+steps:
+  - script: echo testing
+    displayName: Test
+
+  - script: |
+      echo this is the hostname:
+      echo ---------------------
+      echo $HOSTNAME
+    displayName: Test Script 2
+
+  - task: WhiteSource@21
+    inputs:
+      cwd: '$(System.DefaultWorkingDirectory)'
+      projectName: '$(projectName)'
+
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud Service'
+      organization: '21022609-gang'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: '21022609-Gang_FYP_Project'
+      cliProjectName: 'FYP_Project'
+      cliSources: '.'
+
+  - task: SonarCloudAnalyze@1
+
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '300'
+
+
