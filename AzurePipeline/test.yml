@@ -34,7 +34,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
      command: 'restore'
-     projects: '**/*.sln'
+     projects: '/workspaces/FYP_Project/OurWebApp/PrototypeWebapp.cs'
      feedsToUse: 'select'
 
   - task: SonarCloudPrepare@1
