@@ -10,6 +10,15 @@ steps:
   - script: echo testing
     displayName: Test
 
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud Service'
+      organization: '21022609-gang'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: '21022609-Gang_FYP_Project'
+      cliProjectName: 'FYP_Project'
+
   - script: |
       echo this is the hostname:
       echo -----------------------
@@ -20,21 +29,6 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: 'restore'
-      projects: '**/*.csproj'
-
-
-  - task: SonarCloudPrepare@1
-    inputs:
-      SonarCloud: 'SonarCloud Service'
-      organization: '21022609-gang'
-      scannerMode: 'CLI'
-      configMode: 'manual'
-      cliProjectKey: '21022609-Gang_FYP_Project'
-      cliProjectName: 'FYP_Project'
-      cliSources: '.'
 
   - task: DotNetCoreCLI@2
     inputs:
