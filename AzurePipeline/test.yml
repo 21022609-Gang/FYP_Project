@@ -30,22 +30,10 @@ steps:
       cwd: '$(System.DefaultWorkingDirectory)'
 
   - task: DotNetCoreCLI@2
-    displayName: Restore
     inputs:
-      command: restore
+      command: 'build'
       projects: '**/*.csproj'
-
-  - task: DotNetCoreCLI@2
-    displayName: Build
-    inputs:
-     projects: '**/*.csproj'
-
-  - task: DotNetCoreCLI@2
-    displayName: Test
-    inputs:
-      command: test
-      projects: '/workspaces/FYP_Project/OurWebApp/OurWebApp.csproj'
-      arguments: '--configuration $(BuildConfiguration) --collect "Code Coverage"'
+      arguments: '--configuration $(BuildConfiguration) --collect "Code coverage"'
 
   - task: SonarCloudAnalyze@1
 
