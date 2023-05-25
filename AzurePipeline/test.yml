@@ -19,7 +19,6 @@ steps:
   - task: WhiteSource@21
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
-      generateConfigFile: true
 
   - task: SonarCloudPrepare@1
     inputs:
@@ -34,7 +33,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
      command: 'build'
-     projects: 'my-project.sln'
+     projects: 'FYP_Project'
 
   - task: SonarCloudAnalyze@1
 
