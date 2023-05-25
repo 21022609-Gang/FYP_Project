@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vxTQF6BxM522511aHNRa3jyuktFTijMV4px4rJwUxT/OLXAUwnPFb1lEMQVy7N2329dWFbKd/S+cA0TtZHhZ3w==",
+  "dgSpecHash": "xZ08fBuetY2GmRYnW/ZKbe0doVVZqqYOFVY7+S9g6bV1Qok5sDYKbrTaz5tTAIA7bmVaPmos3p7agzSbAb5pvQ==",
   "success": true,
   "projectFilePath": "/workspaces/FYP_Project/OurWebApp/OurWebApp.csproj",
   "expectedPackageFiles": [
+    "/home/vscode/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/home/vscode/.nuget/packages/microsoft.aspnet.webapi.client/5.2.4/microsoft.aspnet.webapi.client.5.2.4.nupkg.sha512",
     "/home/vscode/.nuget/packages/microsoft.aspnetcore/2.2.0/microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "/home/vscode/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
