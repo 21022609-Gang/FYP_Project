@@ -33,7 +33,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
      command: 'build'
-     projects: 'FYP_Project'
+     projects: 'PrototypeWebApp.cs'
 
   - task: SonarCloudAnalyze@1
 
