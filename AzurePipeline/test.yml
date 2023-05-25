@@ -35,9 +35,6 @@ steps:
     inputs:
       pollingTimeoutSec: '300'
 
-  - script: dotnet tool install --global coverlet.console
-    displayName: Install Coverlet
-
   - script: dotnet test --collect:"XPlat Code Coverage" --settings coverlet.runsettings
     displayName: Run Tests with Coverage
 
