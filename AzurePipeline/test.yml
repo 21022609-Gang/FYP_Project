@@ -45,7 +45,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
-      projects: 'tests/**/*.csproj'
+      projects: '**/*[Tt]ests/*.csproj'
       arguments: '--collect "Code Coverage"'
 
   - task: SonarCloudAnalyze@1
