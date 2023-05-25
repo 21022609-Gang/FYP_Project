@@ -43,3 +43,4 @@ steps:
       codeCoverageTool: 'Cobertura'
       summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*.cobertura.xml'
       reportDirectory: '$(System.DefaultWorkingDirectory)/codecoverage'
+
