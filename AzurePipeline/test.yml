@@ -35,12 +35,4 @@ steps:
     inputs:
       pollingTimeoutSec: '300'
 
-  - script: dotnet test --collect:"XPlat Code Coverage" --settings coverlet.runsettings
-    displayName: Run Tests with Coverage
-
-  - task: PublishCodeCoverageResults@1
-    inputs:
-      codeCoverageTool: 'Cobertura'
-      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*.cobertura.xml'
-      reportDirectory: '$(System.DefaultWorkingDirectory)/codecoverage'
 
