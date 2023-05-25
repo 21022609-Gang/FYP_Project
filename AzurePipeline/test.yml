@@ -20,6 +20,23 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
+  - task: UseDotNet@2
+    inputs:
+     packageType: 'sdk'
+     version: '6.x'
+     includePreviewVersions: true
+ 
+  - task: NuGetToolInstaller@1
+    inputs:
+     versionSpec: '5.9.0'
+     checkLatest: true
+ 
+  - task: DotNetCoreCLI@2
+    inputs:
+     command: 'restore'
+     projects: '**/*.sln'
+     feedsToUse: 'select'
+
   - task: SonarCloudPrepare@1
     inputs:
       SonarCloud: 'SonarCloud Service'
@@ -29,6 +46,12 @@ steps:
       cliProjectKey: '21022609-Gang_FYP_Project'
       cliProjectName: 'FYP_Project'
       cliSources: '.'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      projects: '/workspaces/FYP_Project/OurWebApp/PrototypeWebapp.cs'
+      arguments: '/nr:false'
 
   - task: SonarCloudAnalyze@1
 
