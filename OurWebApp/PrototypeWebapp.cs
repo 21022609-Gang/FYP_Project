@@ -9,21 +9,41 @@ namespace MyNamespace
 {
     public static class MyFunction
     {
-        [FunctionName("MyFunction")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        [FunctionName("Home")]
+        public static IActionResult Home(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("Home function processed a request.");
 
-            string responseMessage = "<html><body><h1>Oheyo seki!</h1></body></html>";
+            string responseMessage = "<html><body><h1>Welcome to my Azure Functions web app!</h1></body></html>";
 
             return new ContentResult
             {
                 Content = responseMessage,
                 ContentType = "text/html",
-                StatusCode = 200
+                StatusCode = StatusCodes.Status200OK
             };
         }
+
+        [FunctionName("Hello")]
+        public static IActionResult Hello(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "hello/{name}")] HttpRequest req,
+            string name,
+            ILogger log)
+        {
+            log.LogInformation($"Hello function processed a request for {name}.");
+
+            string responseMessage = $"<html><body><h1>Hello, {name}!</h1></body></html>";
+
+            return new ContentResult
+            {
+                Content = responseMessage,
+                ContentType = "text/html",
+                StatusCode = StatusCodes.Status200OK
+            };
+        }
+
+        // Add more functions and logic as needed for your web app
     }
 }
