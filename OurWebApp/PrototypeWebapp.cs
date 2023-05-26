@@ -43,7 +43,5 @@ namespace MyNamespace
                 StatusCode = StatusCodes.Status200OK
             };
         }
-
-        // Add more functions and logic as needed for your web app
     }
 }
