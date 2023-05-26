@@ -10,12 +10,14 @@ steps:
   - script: echo testing
     displayName: Test
 
-  - task: SonarQubePrepare@5
+  - task: SonarCloudPrepare@1
     inputs:
-      SonarQube: 'SonarQubeConnect'
-      scannerMode: 'MSBuild'
-      projectKey: 'SOI-2023-2310-0043-Team1_FYP_Project.git_AYhZrWKJnox9yhVTP-5B'
-      projectName: 'FYP_Project'
+      SonarCloud: 'SonarCloud Service'
+      organization: '21022609-gang'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: '21022609-Gang_FYP_Project'
+      cliProjectName: 'FYP_Project'
 
   - script: |
       echo this is the hostname:
@@ -27,8 +29,8 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
-  - task: SonarQubeAnalyze@5
+  - task: SonarCloudAnalyze@1
 
-  - task: SonarQubePublish@5
+  - task: SonarCloudPublish@1
     inputs:
       pollingTimeoutSec: '300'
