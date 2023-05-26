@@ -15,7 +15,6 @@
           "OurWebApp.dll": {}
         }
       },
-      "coverlet.collector/6.0.0": {},
       "Microsoft.AspNet.WebApi.Client/5.2.4": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",

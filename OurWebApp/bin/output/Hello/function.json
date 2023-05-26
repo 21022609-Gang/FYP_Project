@@ -4,15 +4,16 @@
   "bindings": [
     {
       "type": "httpTrigger",
+      "route": "hello/{name}",
       "methods": [
         "get",
         "post"
       ],
-      "authLevel": "function",
+      "authLevel": "anonymous",
       "name": "req"
     }
   ],
   "disabled": false,
   "scriptFile": "../bin/OurWebApp.dll",
-  "entryPoint": "MyNamespace.MyFunction.Run"
+  "entryPoint": "MyNamespace.MyFunction.Hello"
 }
