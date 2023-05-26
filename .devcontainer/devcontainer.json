@@ -1,7 +1,12 @@
 {
 	"name": "AzurePipelines",
 	"dockerFile": "Dockerfile",
-	
+	"postCreateCommand": [
+		"apt-get update && apt-get install -y dotnet-sdk-6.0",
+		"sudo apt-get update",
+ 		"sudo apt-get install azure-functions-core-tools-3"
+		],
+
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
