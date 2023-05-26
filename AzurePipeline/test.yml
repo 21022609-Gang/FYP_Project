@@ -34,13 +34,14 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
-      projects: '/workspaces/FYP_Project/OurWebApp/OurWebApp.csproj'
+      projects: '**/*.csproj'
+      arguments: '--configuration $(BuildConfiguration)'
 
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
-      projects: '/workspaces/FYP_Project/OurWebApp/OurWebApp.csproj'
-      arguments: '--collect "Code Coverage"'
+      projects: '/workspaces/FYP_Project/OurWebApp/Tests'
+      arguments: '--configuration $(BuildConfiguration) --collect "Code Coverage"'
 
   - task: SonarCloudPublish@1
     inputs:
