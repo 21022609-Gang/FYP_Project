@@ -13,8 +13,8 @@ steps:
   - script: |
       # Download and install OpenCover
       mkdir -p '$(Agent.ToolsDirectory)/OpenCover'
-      Invoke-WebRequest -Uri 'https://github.com/OpenCover/opencover/releases/download/4.7.1221/opencover.4.7.1221.msi' -OutFile '$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe'
-      OpenCover.Console.exe -target:"path/to/your/test/executable" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
+      curl -L -o "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" 'https://github.com/OpenCover/opencover/releases/download/4.7.1221/opencover.4.7.1221.msi'
+      mono "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" -target:"path/to/your/test/executable" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
     displayName: Install OpenCover
 
   - task: PublishCodeCoverageResults@1
