@@ -34,3 +34,9 @@ steps:
   - task: SonarCloudPublish@1
     inputs:
       pollingTimeoutSec: '300'
+    
+  - script: |
+      # Download and install OpenCover
+      mkdir -p '$(Agent.ToolsDirectory)/OpenCover'
+      Invoke-WebRequest -Uri 'https://github.com/OpenCover/opencover/releases/download/4.7.1221/opencover.4.7.1221.msi' -OutFile '$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe'
+    displayName: Install OpenCover
