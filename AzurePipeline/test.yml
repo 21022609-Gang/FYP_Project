@@ -32,7 +32,7 @@ steps:
       cliProjectKey: '21022609-Gang_FYP_Project'
       cliProjectName: 'FYP_Project'
       extraProperties: |
-      sonar.cs.opencover.reportsPaths=$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml
+        sonar.cs.opencover.reportsPaths=$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml
 
   - script: |
       echo this is the hostname:
