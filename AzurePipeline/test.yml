@@ -14,8 +14,20 @@ steps:
       # Download and install OpenCover
       mkdir -p '$(Agent.ToolsDirectory)/OpenCover'
       curl -L -o "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" 'https://github.com/OpenCover/opencover/releases/download/4.7.1221/opencover.4.7.1221.msi'
-      dotnet "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" -target:"path/to/your/test/executable" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
+      dotnet "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" -target:"/workspaces/FYP_Project/OurWebApp/PrototypeWebapp.cs" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
     displayName: Install OpenCover
+
+  - script: |
+    # Install OpenCover as a .NET Core global tool
+    dotnet tool install -g dotnet-trx
+    dotnet tool install -g opencover
+
+    # Display OpenCover version
+    opencover --version
+
+    # Run OpenCover with your test command
+    opencover --target:"path/to/your/test/executable" --output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
+  displayName: Install OpenCover
 
   - task: PublishCodeCoverageResults@1
     inputs:
