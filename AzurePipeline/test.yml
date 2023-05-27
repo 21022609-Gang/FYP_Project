@@ -14,7 +14,7 @@ steps:
       # Download and install OpenCover
       mkdir -p '$(Agent.ToolsDirectory)/OpenCover'
       curl -L -o "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" 'https://github.com/OpenCover/opencover/releases/download/4.7.1221/opencover.4.7.1221.msi'
-      mono "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" -target:"path/to/your/test/executable" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
+      dotnet "$(Agent.ToolsDirectory)/OpenCover/OpenCover.exe" -target:"path/to/your/test/executable" -output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
     displayName: Install OpenCover
 
   - task: PublishCodeCoverageResults@1
