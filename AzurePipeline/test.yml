@@ -18,10 +18,10 @@ steps:
     displayName: Install OpenCover
 
   - task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'OpenCover'
-    summaryFileLocation: '$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml'
-    reportDirectory: '$(Build.ArtifactStagingDirectory)'
+    inputs:
+      codeCoverageTool: 'OpenCover'
+      summaryFileLocation: '$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml'
+      reportDirectory: '$(Build.ArtifactStagingDirectory)'
 
   - task: SonarCloudPrepare@1
     inputs:
