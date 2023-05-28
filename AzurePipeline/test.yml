@@ -7,6 +7,14 @@ pool:
   name: 'mycomputeragent'
 
 steps:
+
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud Service'
+      organization: '21022609-gang'
+      scannerMode: 'MSBuild'
+      ProjectKey: '21022609-Gang_FYP_Project'
+      ProjectName: 'FYP_Project'
   - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
@@ -18,14 +26,6 @@ steps:
     inputs:
       command: 'build'
       projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
-
-  - task: SonarCloudPrepare@1
-    inputs:
-      SonarCloud: 'SonarCloud Service'
-      organization: '21022609-gang'
-      scannerMode: 'MSBuild'
-      ProjectKey: '21022609-Gang_FYP_Project'
-      ProjectName: 'FYP_Project'
 
   - script: echo testing
     displayName: Test
