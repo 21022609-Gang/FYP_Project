@@ -12,8 +12,8 @@ steps:
       SonarCloud: 'SonarCloud Service'
       organization: '21022609-gang'
       scannerMode: 'MSBuild'
-      cliProjectKey: '21022609-Gang_FYP_Project'
-      cliProjectName: 'FYP_Project'
+      ProjectKey: '21022609-Gang_FYP_Project'
+      ProjectName: 'FYP_Project'
 
   - script: echo testing
     displayName: Test
