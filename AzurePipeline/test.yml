@@ -14,6 +14,10 @@ steps:
       feedsToUse: 'select'
       vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
+  - task: UseDotNet@2
+    inputs:
+     version: '6.0.0'
+
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
