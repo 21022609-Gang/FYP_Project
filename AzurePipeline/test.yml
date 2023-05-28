@@ -7,32 +7,16 @@ pool:
   name: 'mycomputeragent'
 
 steps:
-  - script: echo testing
-    displayName: Test
-
-  - script: |
-      dotnet tool install -g dotnet-trx
-      dotnet tool install -g opencover
-      opencover --version
-      opencover --target:"/workspaces/FYP_Project/OurWebApp/PrototypeWebapp.cs" --output:"$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml"
-    displayName: Install OpenCover
-
-  - task: PublishCodeCoverageResults@1
-    inputs:
-      codeCoverageTool: 'OpenCover'
-      summaryFileLocation: '$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml'
-      reportDirectory: '$(Build.ArtifactStagingDirectory)'
-
   - task: SonarCloudPrepare@1
     inputs:
       SonarCloud: 'SonarCloud Service'
       organization: '21022609-gang'
-      scannerMode: 'CLI'
-      configMode: 'manual'
+      scannerMode: 'MSBuild'
       cliProjectKey: '21022609-Gang_FYP_Project'
       cliProjectName: 'FYP_Project'
-      extraProperties: |
-        sonar.cs.opencover.reportsPaths=$(Build.ArtifactStagingDirectory)/OpenCoverResults.xml
+
+  - script: echo testing
+    displayName: Test
 
   - script: |
       echo this is the hostname:
@@ -40,9 +24,16 @@ steps:
       echo $HOSTNAME
     displayName: Test Script 2
 
-  - task: WhiteSource@21
+  - task: VSTest@2
     inputs:
-      cwd: '$(System.DefaultWorkingDirectory)'
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+        **\*test*.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+      codeCoverageEnabled: true
+      testRunTitle: 'VS Test'
 
   - task: SonarCloudAnalyze@1
 
@@ -50,3 +41,6 @@ steps:
     inputs:
       pollingTimeoutSec: '300'
     
+  - task: WhiteSource@21
+    inputs:
+      cwd: '$(System.DefaultWorkingDirectory)'
