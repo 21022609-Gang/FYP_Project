@@ -10,7 +10,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
-      projects: '/OurWebApp/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
 
   - task: SonarCloudPrepare@1
     inputs:
@@ -32,7 +32,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
-      projects: '/OurWebApp/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
       arguments: '--collect "Code Coverage"'
 
   - task: SonarCloudAnalyze@1
