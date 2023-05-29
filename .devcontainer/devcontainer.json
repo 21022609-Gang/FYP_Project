@@ -20,6 +20,8 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
+	"postCreateCommand": "sh .devcontainer/postCreateCommand.sh",
+
 	// Use 'postStartCommand' to run commands each time the container is successfully started..
     "postStartCommand": "/home/vscode/azure-pipelines/start.sh",
 
@@ -31,6 +33,7 @@
 	//		"X": "y"
 	//	}
 	//},
+
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {},
 		"ghcr.io/lukewiwa/features/shellcheck:0": {},
