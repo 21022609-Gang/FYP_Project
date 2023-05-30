@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /workspaces/FYP_Project || dotnet clean
+cd /workspaces/FYP_Project/OurWebApp || dotnet clean
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
