@@ -6,6 +6,9 @@ trigger:
 pool:
   name: 'mycomputeragent'
 
+variables:
+  ImageName: 'denisepzq/fpy/customerapi:$(Build.BuildId)'
+
 steps:
 
   - task: SonarCloudPrepare@1
@@ -51,3 +54,23 @@ steps:
   - task: WhiteSource@21
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
+
+  - task: Docker@1
+    inputs:
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'Docker Hub'
+        command: 'Build an image'
+        dockerFile: '**denisepzq/fpy/Dockerfile'
+        imageName: '$(ImageName)'
+        useDefaultContext: false
+        buildContext: 'CustomerApi'
+    displayName: 'Build the Docker image'
+
+  - task: Docker@1
+    inputs:
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'Docker Hub'
+        command: 'Push an image'
+        imageName: '$(ImageName)'
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    displayName: 'Push the Docker image to Dockerhub'
