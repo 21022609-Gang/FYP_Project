@@ -6,9 +6,6 @@ trigger:
 pool:
   name: 'mycomputeragent'
 
-variables:
-  ImageName: 'denisepzq/fpy/customerapi:$(Build.BuildId)'
-
 steps:
 
   - task: SonarCloudPrepare@1
