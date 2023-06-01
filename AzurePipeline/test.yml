@@ -54,15 +54,3 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
-
-  - task: Checkout code
-    uses: actions/checkout@v2 #fetch the latest commit of your repository's code
-
-  - task: Build and push Docker image
-    env:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-    run: |
-      echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-      docker build -t denisepzq/fpy/customerapi .
-      docker push denisepzq/fpy/customerapi
