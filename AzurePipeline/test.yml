@@ -6,8 +6,7 @@ trigger:
 pool:
   name: 'mycomputeragent'
 
-variables:
-  ImageName: 'denisepzq/fpy/customerapi:$(Build.BuildId)'
+
 
 steps:
 
@@ -55,22 +54,15 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
-  - task: Docker@1
-    inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
-        command: 'Build an image'
-        dockerFile: '**denisepzq/fpy/Dockerfile'
-        imageName: '$(ImageName)'
-        useDefaultContext: false
-        buildContext: 'CustomerApi'
-    displayName: 'Build the Docker image'
 
-  - task: Docker@1
-    inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
-        command: 'Push an image'
-        imageName: '$(ImageName)'
-    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-    displayName: 'Push the Docker image to Dockerhub'
+  - name: Checkout code
+    uses: actions/checkout@v2 #fetch the latest commit of your repository's code
+
+  - name: Build and push Docker image
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+    run: |
+      echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      docker build -t denisepzq/fpy/customerapi .
+      docker push denisepzq/fpy/customerapi
