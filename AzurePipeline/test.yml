@@ -55,10 +55,10 @@ steps:
       cwd: '$(System.DefaultWorkingDirectory)'
 
 
-  - name: Checkout code
+  - task: Checkout code
     uses: actions/checkout@v2 #fetch the latest commit of your repository's code
 
-  - name: Build and push Docker image
+  - task: Build and push Docker image
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
