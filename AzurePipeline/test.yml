@@ -20,14 +20,14 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
-      projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
       feedsToUse: 'select'
       vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
-      projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
 
   - script: echo testing
     displayName: Test
@@ -41,7 +41,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
-      projects: '/workspaces/FYP_Project/OurWebApp/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
       arguments: '--collect "Code Coverage"'
 
   - task: SonarCloudAnalyze@1
