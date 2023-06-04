@@ -57,18 +57,18 @@ steps:
   - task: Docker@2
     inputs:
       containerRegistry: 'Docker Hub'
-      repository: 'denisepzq/fpy/customerapi'
+      repository: 'denisepzq/fpy'
       command: 'build'
       Dockerfile: '**/CustomerApi/CustomerApi/Dockerfile'
       tags: '$(Build.BuildId)'
       arguments: '--build-arg ARG_NAME=ARG_VALUE'
-      displayName: 'Build the Docker image'
+    displayName: 'Build the Docker image'
           
   - task: Docker@2
      inputs:
       containerRegistry: 'Docker Hub'
-      repository: 'denisepzq/fpy/customerapi'
+      repository: 'denisepzq/fpy'
       command: 'push'
       tags: '$(Build.BuildId)'
-      condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-      displayName: 'Push the Docker image to Docker Hub'
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    displayName: 'Push the Docker image to Docker Hub'
