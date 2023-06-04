@@ -59,4 +59,3 @@ steps:
       docker build -t $DOCKERHUB_USERNAME/clockbox:latest .
       docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
       docker push $DOCKERHUB_USERNAME/clockbox:latest
-  - displayName: 'Build and push the Docker image'
