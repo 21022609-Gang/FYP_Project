@@ -65,9 +65,6 @@ steps:
     displayName: 'Build the Docker image'
           
   - task: Docker@2
-   env:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
     run: |
       docker build -t $DOCKERHUB_USERNAME/clockbox:latest .
       docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
