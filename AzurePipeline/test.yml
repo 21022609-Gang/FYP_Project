@@ -53,19 +53,10 @@ steps:
   - task: WhiteSource@21
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
-
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'Docker Hub'
-      repository: 'denisepzq/fpy'
-      command: 'build'
-      Dockerfile: '**/CustomerApi/CustomerApi/Dockerfile'
-      tags: '$(Build.BuildId)'
-      arguments: '--build-arg ARG_NAME=ARG_VALUE'
-    displayName: 'Build the Docker image'
           
   - task: Docker@2
-    run: |
+  script: |
       docker build -t $DOCKERHUB_USERNAME/clockbox:latest .
       docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
       docker push $DOCKERHUB_USERNAME/clockbox:latest
+  displayName: 'Build and push the Docker image'
