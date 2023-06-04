@@ -55,7 +55,7 @@ steps:
       cwd: '$(System.DefaultWorkingDirectory)'
           
   - task: Docker@2
-  script: |
+  - script: |
       docker build -t $DOCKERHUB_USERNAME/clockbox:latest .
       docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
       docker push $DOCKERHUB_USERNAME/clockbox:latest
