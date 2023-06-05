@@ -1,0 +1,58 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/umd/popper.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery/jquery.validate.unobtrusive.min.js"></script>
+
+    <style>
+        body{
+            background-color: grey;
+            background-size: 100%;
+        }
+
+        .container {
+            margin-bottom: 35px;
+            margin-top: 35px;
+            margin-left: 50px;
+            margin-right: 50px
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 30%;
+            /* Other overlay styles */
+        }
+
+    </style>
+
+    @RenderSection("Script", false)
+</head>
+
+<body>
+    <div class="container-fluid p-5">
+        <div class="container" style="position:relative;">
+
+            <div class="column">
+                <img src="~/images/sky2.png" alt="How did this break?" style=" 
+                position:relative; overflow: hidden; width: 700px; 
+                height: calc(100% - 70px);">
+            </div>
+
+            <div class="overlay" style="background-color:white; ">
+                    <!-- Content of the overlay -->
+                    @RenderBody()
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
