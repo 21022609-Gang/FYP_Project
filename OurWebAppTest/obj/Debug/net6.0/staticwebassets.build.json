@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sT0ihiyMe9safxElo2h7Sgkp7X9wqiN9nRtgRNi0uRg=",
+  "Hash": "e/FhjVkYkLpq7Sw0AfVx+X+NeKV6+tKASmWIXHCPoAU=",
   "Source": "OurWebAppTest",
   "BasePath": "_content/OurWebAppTest",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\anotherchance.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/anotherchance.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\anotherchance.png"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\facebook.png",

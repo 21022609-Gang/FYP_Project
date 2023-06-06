@@ -19,7 +19,8 @@
             margin-bottom: 35px;
             margin-top: 35px;
             margin-left: 50px;
-            margin-right: 50px
+            margin-right: 50px;
+            position: relative;
         }
 
         .overlay {
@@ -28,9 +29,32 @@
             right: 0;
             bottom: 0;
             left: 30%;
-            /* Other overlay styles */
+            background-color: white;
+            z-index: 2;
         }
 
+        .headerOverlay {
+            font-family: 'Inter', sans-serif;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .imageOverlay {
+            position: absolute;
+            top: 50px;
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
     </style>
 
     @RenderSection("Script", false)
@@ -38,21 +62,32 @@
 
 <body>
     <div class="container-fluid p-5">
-        <div class="container" style="position:relative;">
+        <div class="container">
+
+            <div class="headerOverlay">
+                <h3>There is Always Another Chance</h3>
+                
+            </div>
+
+            <div class="imageOverlay">
+                <img src="~/images/anotherchance.png" alt="Im losing it!!" style="
+                height:160px; width: 160px">
+            </div>
 
             <div class="column">
                 <img src="~/images/sky2.png" alt="How did this break?" style=" 
-                position:relative; overflow: hidden; width: 700px; 
+                position: relative; overflow: hidden; width: 700px; 
                 height: calc(100% - 70px);">
             </div>
 
-            <div class="overlay" style="background-color:white; ">
-                    <!-- Content of the overlay -->
+            <div class="overlay">
+                <div class="container-fluid">
+                    @*Actual Code here *@
                     @RenderBody()
+                </div>
             </div>
 
         </div>
 
     </div>
-    
 </body>

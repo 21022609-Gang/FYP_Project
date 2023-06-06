@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\anotherchance.png",
+      "PackagePath": "staticwebassets\\images\\anotherchance.png"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\facebook.png",
       "PackagePath": "staticwebassets\\images\\facebook.png"
     },
