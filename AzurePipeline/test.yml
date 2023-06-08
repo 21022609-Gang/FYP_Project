@@ -63,7 +63,6 @@ steps:
     displayName : Login to Docker HUb
     inputs:
         command: login
-        containerRegistry: denisepzq
   - task: Docker@2
     displayName: Build and Push
     inputs:
