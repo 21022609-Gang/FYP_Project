@@ -11,7 +11,7 @@
 
     <style>
         body{
-            background-color: grey;
+            background-color: #eef3f5;
             background-size: 100%;
         }
 
@@ -55,6 +55,11 @@
             align-items: center;
             z-index: 3;
         }
+
+        .border-shadow {
+            border-radius: 5px;
+            box-shadow: -3px 1px 10px 0 rgba(0, 0, 0, 0.3)
+        }
     </style>
 
     @RenderSection("Script", false)
@@ -62,7 +67,7 @@
 
 <body>
     <div class="container-fluid p-5">
-        <div class="container">
+        <div class="container border-shadow">
 
             <div class="headerOverlay">
                 <h3>There is Always Another Chance</h3>
@@ -71,7 +76,7 @@
 
             <div class="imageOverlay">
                 <img src="~/images/anotherchance.png" alt="Im losing it!!" style="
-                height:160px; width: 160px">
+                height:200px; width: 200px">
             </div>
 
             <div class="column">

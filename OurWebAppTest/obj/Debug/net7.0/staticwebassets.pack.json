@@ -25,6 +25,26 @@
       "PackagePath": "staticwebassets\\images\\sky2.png"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\startingPage\\Daco_6067146.png",
+      "PackagePath": "staticwebassets\\images\\startingPage\\Daco_6067146.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\startingPage\\Delivery.png",
+      "PackagePath": "staticwebassets\\images\\startingPage\\Delivery.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\startingPage\\Events.png",
+      "PackagePath": "staticwebassets\\images\\startingPage\\Events.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\startingPage\\F&B.png",
+      "PackagePath": "staticwebassets\\images\\startingPage\\F&B.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\startingPage\\Retail.png",
+      "PackagePath": "staticwebassets\\images\\startingPage\\Retail.png"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
