@@ -3,10 +3,15 @@ trigger:
     include:
       - main
 
+schedules:
+- cron: "0 19 * * *"
+  displayName: Daily build
+  branches:
+    include:
+      - main
+
 pool:
   name: 'mycomputeragent'
-
-
 
 steps:
 
