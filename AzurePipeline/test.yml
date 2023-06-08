@@ -60,7 +60,12 @@ steps:
       cwd: '$(System.DefaultWorkingDirectory)'
           
   - task: Docker@2
-  - script: |
-      docker build -t $DOCKERHUB_USERNAME/clockbox:latest .
-      docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
-      docker push $DOCKERHUB_USERNAME/clockbox:latest
+    displayName : Login to Docker HUb
+    inputs:
+        command: login
+        containerRegistry: dockerRegistryServiceConnection2
+  - task: Docker@2
+    displayName: Build and Push
+    inputs:
+        command: buildAndPush
+        repository:  denisepzq/fpy # username/contosoRepository for DockerHub
