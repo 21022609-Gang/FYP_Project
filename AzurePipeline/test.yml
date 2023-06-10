@@ -68,4 +68,4 @@ steps:
     displayName: Build and Push
     inputs:
         command: buildAndPush
-        repository:  denisepzq/fpy # username/contosoRepository for DockerHub
+        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
