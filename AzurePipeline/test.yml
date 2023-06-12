@@ -4,7 +4,7 @@ trigger:
       - main
 
 schedules:
-- cron: "18 23 * * *"
+- cron: "35 23 * * *"
   displayName: Daily build
   branches:
     include:
