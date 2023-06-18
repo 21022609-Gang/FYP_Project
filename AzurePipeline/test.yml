@@ -69,3 +69,5 @@ steps:
     inputs:
         command: buildAndPush
         repository:   denisepzq/newimage # username/contosoRepository for DockerHub
+    env:
+        PATH: /workspaces/FYP_Project/.devcontainer/Dockerfile
