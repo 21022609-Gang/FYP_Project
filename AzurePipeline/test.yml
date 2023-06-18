@@ -77,3 +77,4 @@ steps:
         containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 #
         repository: denisepzq/newimage # username/contosoRepository for DockerHub
         dockerfile: $(Build.SourcesDirectory)/.devcontainer/Dockerfile
+        arguments: -H tcp://localhost:2375
