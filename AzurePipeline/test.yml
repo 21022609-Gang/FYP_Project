@@ -76,6 +76,14 @@ steps:
       sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     displayName: install docker engine
     
+  - script: |
+      sudo systemctl start docker
+    displayName: Start Docker Service
+
+  - script: |
+      sudo systemctl restart docker
+    displayName: Restart Docker Service
+
   - task: Docker@2
     displayName: Build and Push
     inputs:
