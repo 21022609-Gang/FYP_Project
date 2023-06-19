@@ -76,6 +76,6 @@ steps:
     inputs:
         command: buildAndPush
         repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/.../FYP_Project/.devcontainer/Dockerfile
+        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
         #dockerfile: /home/vscode/azure-pipelines/_work/1/s/**/Dockerfile
         #run: doclker build . --file Docker -- tag denisepzq/newimage
