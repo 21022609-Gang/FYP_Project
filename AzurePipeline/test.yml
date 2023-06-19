@@ -71,8 +71,7 @@ steps:
         dockerVersion: 17.09.0-ce
         releaseType: stable
 
-     displayName: install docker engine
-    - script: |
+  - script: |
       sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
   - task: Docker@2
