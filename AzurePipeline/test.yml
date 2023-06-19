@@ -72,8 +72,8 @@ steps:
         releaseType: stable
 
   - script: |
-      curl -fsSL https://get.docker.com -o get-docker.sh
-      sudo sh get-docker.sh
+      sudo apt-get update
+      sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     displayName: install docker engine
     
   - task: Docker@2
