@@ -73,10 +73,12 @@ steps:
 
   - script: |
       sudo apt-get update
-      sudo apt-get install -y docker-compose
-    displayName: Install Docker Compose
+      sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    displayName: install docker engine
     
-  - script: |
-      docker-compose -f /workspaces/FYP_Project/.devcontainer/docker-compose.yml build
-      docker-compose -f /workspaces/FYP_Project/.devcontainer/docker-compose.yml push
-    displayName: Build and Push Docker Image
+  - task: Docker@2
+    displayName: Build and Push
+    inputs:
+        command: buildAndPush
+        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
+        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile
