@@ -76,9 +76,7 @@ steps:
       sudo apt-get install -y docker-compose
     displayName: Install Docker Compose
     
-  - task: Docker@2
-    displayName: Build and Push
-    inputs:
-        command: buildAndPush
-        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
+  - script: |
+      docker-compose -f /workspaces/FYP_Project/.devcontainer/docker-compose.yml build
+      docker-compose -f /workspaces/FYP_Project/.devcontainer/docker-compose.yml push
+    displayName: Build and Push Docker Image
