@@ -81,4 +81,4 @@ steps:
     inputs:
         command: buildAndPush
         repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile
+        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
