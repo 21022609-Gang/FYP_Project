@@ -73,7 +73,11 @@ steps:
 
   - script: |
       sudo apt-get update
-      sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+      sudo apt-get install -y docker-ce
+      sudo apt-get install -y docker-ce-cli
+      sudo apt-get install -y containerd.io
+      sudo apt-get install -y docker-buildx-plugin
+      sudo apt-get install -y docker-compose-plugin
     displayName: install docker engine
     
   - task: Docker@2
