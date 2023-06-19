@@ -73,8 +73,8 @@ steps:
 
   - script: |
       sudo apt-get update
-      sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    displayName: install docker engine
+      sudo apt-get install -y docker-compose
+    displayName: Install Docker Compose
     
   - task: Docker@2
     displayName: Build and Push
