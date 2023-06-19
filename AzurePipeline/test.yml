@@ -76,7 +76,7 @@ steps:
     inputs:
         command: buildAndPush
         repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        #$dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile
+        ##$dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile
    # env:
        # PATH: /vscode/bin/linux-x64/695af097c7bd098fbf017ce3ac85e09bbc5dda06/bin/remote-cli:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/dotnet/current:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/vscode/.dotnet/tools:/home/vscode/.local/bin
         #/workspaces/FYP_Project/.devcontainer/Dockerfile
