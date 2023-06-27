@@ -90,6 +90,8 @@ C:/Users/User/source/repos/FYP_Project/OurWebAppTest/obj/Debug/net7.0/ref/OurWeb
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Azure.Core.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Azure.Identity.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Humanizer.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.AspNetCore.Server.Kestrel.Https.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
@@ -109,6 +111,7 @@ C:/Users/User/source/repos/FYP_Project/OurWebAppTest/obj/Debug/net7.0/ref/OurWeb
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Mono.TextTemplating.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Newtonsoft.Json.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/System.CodeDom.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/System.Data.SqlClient.dll
