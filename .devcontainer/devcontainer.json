@@ -21,11 +21,10 @@
 	// "forwardPorts": [],
 
 	//"postCreateCommand": "sh .devcontainer/postCreateCommand.sh",
-        // Use 'postStartCommand' to run commands each time the container is successfully started..
-        "postStartCommand": "/home/vscode/azure-pipelines/start.sh",
-
+		
 	// Use 'postStartCommand' to run commands each time the container is successfully started.
 	"postStartCommand": [
+		"/home/vscode/azure-pipelines/start.sh",
 		"cd OurWebAppTest",
 		"dotnet restore",
 		"wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb",
