@@ -55,6 +55,30 @@ steps:
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
 
+  - task: Docker@2
+    displayName : Login to Docker Hub
+    inputs:
+        command: login
+        containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 #
+
+  - task: DockerInstaller@0
+    displayName: Docker Installer
+    inputs:
+        dockerVersion: 17.09.0-ce
+        releaseType: stable
+
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    displayName: install docker engine
+
+  - task: Docker@2
+    displayName: Build and Push
+    inputs:
+        command: buildAndPush
+        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
+        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
+
   - task: SonarCloudPublish@1
     inputs:
       pollingTimeoutSec: '300'
