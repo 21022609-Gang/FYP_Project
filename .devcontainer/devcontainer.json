@@ -21,9 +21,21 @@
 	// "forwardPorts": [],
 
 	//"postCreateCommand": "sh .devcontainer/postCreateCommand.sh",
-
-	// Use 'postStartCommand' to run commands each time the container is successfully started..
-    "postStartCommand": "/home/vscode/azure-pipelines/start.sh",
+		
+	// Use 'postStartCommand' to run commands each time the container is successfully started.
+	"postStartCommand": [
+		"/home/vscode/azure-pipelines/start.sh",
+		"cd OurWebAppTest",
+		"dotnet restore",
+		"wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb",
+		"sudo dpkg -i packages-microsoft-prod.deb",
+		"sudo apt-get update",
+		"sudo apt-get install -y dotnet-sdk-6.0",
+		"dotnet --version",
+		"dotnet add package Microsoft.AspNetCore",
+		"dotnet clean",
+		"dotnet build"
+	],
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
