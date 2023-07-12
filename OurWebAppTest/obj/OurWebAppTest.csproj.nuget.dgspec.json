@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/FYP_Project/OurWebAppTest/OurWebAppTest.csproj": {}
+    "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\OurWebAppTest.csproj": {}
   },
   "projects": {
-    "/workspaces/FYP_Project/OurWebAppTest/OurWebAppTest.csproj": {
+    "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\OurWebAppTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/FYP_Project/OurWebAppTest/OurWebAppTest.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\OurWebAppTest.csproj",
         "projectName": "OurWebAppTest",
-        "projectPath": "/workspaces/FYP_Project/OurWebAppTest/OurWebAppTest.csproj",
-        "packagesPath": "/home/vscode/.nuget/packages/",
-        "outputPath": "/workspaces/FYP_Project/OurWebAppTest/obj/",
+        "projectPath": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\OurWebAppTest.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/vscode/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/share/dotnet/sdk/7.0.305/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,6 +58,14 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -80,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.305/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }
