@@ -63,7 +63,7 @@ steps:
     displayName : Login to Docker Hub
     inputs:
         command: login
-        containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 #
+        containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 
 
   - task: DockerInstaller@0
     displayName: Docker Installer
@@ -76,4 +76,4 @@ steps:
     inputs:
         command: buildAndPush
         repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile #hello
+        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
