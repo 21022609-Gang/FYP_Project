@@ -14,6 +14,12 @@ pool:
   name: 'mycomputeragent'
 
 steps:
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      feedsToUse: 'select'
+      vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
   - task: SonarCloudPrepare@1
     inputs:
@@ -22,12 +28,6 @@ steps:
       scannerMode: 'MSBuild'
       ProjectKey: '21022609-Gang_FYP_Project'
       ProjectName: 'FYP_Project'
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: 'restore'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
-      feedsToUse: 'select'
-      vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
   - task: DotNetCoreCLI@2
     inputs:
