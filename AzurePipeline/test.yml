@@ -17,7 +17,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'restore'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/**'
       feedsToUse: 'select'
       vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
@@ -32,7 +32,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/**'
 
   - script: echo testing
     displayName: Test
@@ -46,7 +46,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      projects: '/workspaces/FYP_Project/OurWebAppTest/**'
       arguments: '--collect "Code Coverage"'
 
   - task: SonarCloudAnalyze@1
@@ -59,21 +59,3 @@ steps:
     inputs:
       pollingTimeoutSec: '300'
     
-  - task: Docker@2
-    displayName : Login to Docker Hub
-    inputs:
-        command: login
-        containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 #
-
-  - task: DockerInstaller@0
-    displayName: Docker Installer
-    inputs:
-        dockerVersion: 17.09.0-ce
-        releaseType: stable
-
-  - task: Docker@2
-    displayName: Build and Push
-    inputs:
-        command: buildAndPush
-        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/FYP_Project/.devcontainer/Dockerfile 
