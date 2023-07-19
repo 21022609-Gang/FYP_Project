@@ -79,8 +79,6 @@ C:/Users/User/source/repos/FYP_Project/OurWebAppTest/obj/Debug/net7.0/OurWebAppT
 C:/Users/User/source/repos/FYP_Project/OurWebAppTest/obj/Debug/net7.0/ref/OurWebAppTest.dll
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/appsettings.Development.json
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/appsettings.json
-/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/host.json
-/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/local.settings.json
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/OurWebAppTest.staticwebassets.runtime.json
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/OurWebAppTest
 /workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/OurWebAppTest.deps.json
@@ -161,3 +159,15 @@ C:/Users/User/source/repos/FYP_Project/OurWebAppTest/obj/Debug/net7.0/ref/OurWeb
 /workspaces/FYP_Project/OurWebAppTest/obj/Debug/net7.0/OurWebAppTest.pdb
 /workspaces/FYP_Project/OurWebAppTest/obj/Debug/net7.0/OurWebAppTest.genruntimeconfig.cache
 /workspaces/FYP_Project/OurWebAppTest/obj/Debug/net7.0/ref/OurWebAppTest.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/Google.Protobuf.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/K4os.Compression.LZ4.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/K4os.Compression.LZ4.Streams.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/K4os.Hash.xxHash.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/MySql.Data.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/MySqlConnector.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/runtimes/win-x64/native/comerr64.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/runtimes/win-x64/native/gssapi64.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/runtimes/win-x64/native/k5sprt64.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/runtimes/win-x64/native/krb5_64.dll
+/workspaces/FYP_Project/OurWebAppTest/bin/Debug/net7.0/runtimes/win-x64/native/krbcc64.dll
