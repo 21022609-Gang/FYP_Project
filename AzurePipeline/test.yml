@@ -71,13 +71,6 @@ steps:
         dockerVersion: 17.09.0-ce
         releaseType: stable
 
-  - script: |
-      sudo su
-      systemctl start docker
-      systemctl enable docker
-      systemctl restart docker
-    displayName: install docker engine
-
   - task: Docker@2
     displayName: Build and Push
     inputs:
