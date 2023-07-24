@@ -1,48 +1,60 @@
 ﻿<head>
     <style>
-        .right {
+
+        header {
+            background-color: white;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 30px;
+            height: 60px;
+            flex: 1;
+        }
+
+        .menu {
             margin-left: auto;
         }
 
-        .navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #f2f2f2;
+        .lih {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 10px 10px;
+            cursor: pointer;
         }
 
-            .navbar li {
-                margin-right: 10px;
-                width: 10%;
-            }
+        .lih:hover {
+            background-color: #1574D2;
+        }
 
-                .navbar li a {
-                    display: block;
-                    padding: 10px;
-                    text-decoration: none;
-                    color: #333;
-                }
-
-                    .navbar li a:hover {
-                        background-color: #666;
-                        color: #fff;
-                    }
+        a {
+            text-decoration: none;
+            color: black
+        }
 
     </style>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <ul class="navbar">
-                <li><a href="#"><img src="~/images/anotherchance.png"
-                    style="width: 60px; height: 60px;" /></a></li>
-                <li class="right"><a href="#">Home</a></li>
-                <li class="right"><a href="#">About</a></li>
-                <li class="right"><a href="#">Services</a></li>
-                <li class="right"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-</body>
+<header>
+    <div>
+        <img class= "logo" src="~/images/anotherchance.png"/>
+    </div>
+
+    <div class="menu">
+        <div class="ul" style="margin-right: 50px">
+            <div class="li lih">About</div>
+            <div class="li lih">Resources</div>
+            <div class="li lih">Jobs</div>
+            <div class="li lih">
+                <a asp-controller="AppUser" asp-action="LoginAppUser">Login</a>
+            </div>
+            <div class="li lih">
+                <a asp-controller="AppUser" asp-action="CreateAppUser">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+</header>

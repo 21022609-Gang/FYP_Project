@@ -1,15 +1,24 @@
-﻿<head>
+﻿@{
+    Layout = "_Login";
+}
+
+<head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="container-fluid">
         <h1 style="margin-left: 20px;">Login</h1>
-        <div class="container-fluid" style="margin-left: 20px; margin-right: 20px;">
-
-            <partial name="_LoginAlt" />
-
+        <div>
+            @TempData["Msg"]
         </div>
+        
+            <div class="container-fluid" style="margin-left: 20px; margin-right: 20px;">
+
+                <partial name="_SignUp" />
+
+            </div>
+
     </div>
 </body>
 

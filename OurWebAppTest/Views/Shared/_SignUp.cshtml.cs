@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OurWebAppTest.Views.Shared
 {
-    public class _LoginAltModel : PageModel
+    public class _LoginModel : PageModel
     {
         public void OnGet()
         {

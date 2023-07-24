@@ -1,8 +1,4 @@
 ﻿@model AppUser
-
-@*Literally _Login but without Login To Account
-    also changed text for a few buttons
-*@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -31,6 +27,7 @@
             font-size: 18px;
             color: white;
             background-color: #1574d2;
+            
         }
 
         .specBtn {
@@ -92,8 +89,12 @@
 </div>
 
 <div style="padding: 20px;">
-    <input type="submit" value="Login"
+    <input type="submit" value="Create an Account"
            class="btn btn-primary submitbtn" style="width: 100%;" />
+
+    <div style="margin-top: 10px">
+        <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
+    </div>
 </div>
 
 <div style="display: flex; align-items: center; height: 15px">
@@ -108,14 +109,22 @@
 
     <a href="#" class="fb specBtn">
         @*Add Link later*@
-        <i class="fa fa-facebook fa-fw"></i> Sign in with Facebook
+        <i class="fa fa-facebook fa-fw"></i> Sign up with Facebook
     </a>
 
     <a href="#" class="twtr specBtn">
-        <i class="fa fa-twitter fa-fw"></i> Sign in with Twitter
+        <i class="fa fa-twitter fa-fw"></i> Sign up with Twitter
     </a>
 
     <a href="#" class="ggle specBtn">
-        <i class="fa fa-google fa-fw"></i> Sign in with Google
+        <i class="fa fa-google fa-fw"></i> Sign up with Google
     </a>
+</div>
+
+<div>
+    <button onclick="location.href='@Url.Action("MyAction", "AppUser")'"> TESTING </button>
+</div>
+
+<div>
+    @TempData["Msg"]
 </div>
