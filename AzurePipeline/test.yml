@@ -71,6 +71,11 @@ steps:
         dockerVersion: 17.09.0-ce
         releaseType: stable
 
+  - script: |
+      for pkg in containerd.io docker-buildx-plugin docker-compose-plugin; do sudo apt-get remove $pkg; done
+      sudo apt-get update
+    displayName: Install docker engine
+    
   - task: Docker@2
     displayName: Build and Push
     inputs:
