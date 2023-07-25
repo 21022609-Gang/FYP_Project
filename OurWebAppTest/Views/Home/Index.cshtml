@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="~/lib/bootstrap/umd/popper.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -11,7 +12,7 @@
         .container-custom {
             width: 1900px;
             height: 2500px;
-            overflow: scroll; 
+            overflow: scroll;
             margin: 0 auto;
         }
 
@@ -22,6 +23,7 @@
         }
 
         .image-container {
+            position: relative;
             width: 100%;
             height: 100%;
             display: flex;
@@ -30,18 +32,154 @@
         }
 
         .centered-image {
-            width: 1500px;
-            height: 680px;
-            max-width: 100%;
+            width: 100%;
+            height: auto;
+            max-width: 1500px;
             max-height: 100%;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            text-align: left;
+            padding: 20px;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 30px;
+            line-height: 1.5;
+        }
+
+        .bold-text {
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            font-size: 65px;
+        }
+
+        /* New container styles */
+        .new-container {
+            width: 960px;
+            height: 276px;
+            background-color: #F5F7FA;
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .new-container .inner-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .get-started-text {
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            white-space: nowrap; /* Prevent line break */
+        }
+
+        .quote-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .rectangle-button {
+            width: 157px;
+            height: 44px;
+            background-color: #1574D2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Updated Navbar styles */
+        header {
+            background-color: #ECECE9; /* Updated background color */
+            height: 60px;
+            width: 1900px; /* Set the navbar width to 1900px */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 30px;
+            height: 60px;
+        }
+
+        .menu {
+            margin-left: auto;
+            margin-right: 30px; /* Added margin to the right side */
+        }
+
+        .lih {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 10px 10px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif; /* Updated font family */
+            color: black; /* Updated text color */
+        }
+
+        .lih:hover {
+            background-color: #1574D2;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
 <body>
+<header>
+    <div class="logo">
+        <img src="~/images/anotherchance.png" height="100%" alt="Logo">
+    </div>
+
+    <div class="menu">
+        <div class="ul">
+            <div class="li lih">About</div>
+            <div class="li lih">Resources</div>
+            <div class="li lih">Jobs</div>
+            <div class="li lih">
+                <a asp-controller="AppUser" asp-action="LoginAppUser">Login</a>
+            </div>
+            <div class="li lih">
+                <a asp-controller="AppUser" asp-action="CreateAppUser">Sign up</a>
+            </div>
+        </div>
+    </div>
+</header>
 <div class="container-custom">
     <div class="color-rectangle">
         <div class="image-container">
             <img src="~/images/handshake.jpg" alt="Centered Image" class="centered-image">
+            <div class="text-container">
+                <p class="bold-text">You always <br> deserve another <br> chance</p>
+                <p>Embrace new beginnings and seize every <br> opportunity. AnotherChance opens doors, <br> connecting dreams with possibilities, and <br> empowering individuals to rewrite their story.</p>
+            </div>
+        </div>
+    </div>
+    <div class="new-container">
+        <div class="inner-content">
+            <div class="get-started-text">GET STARTED HERE</div>
+            <div class="quote-text">
+                Just because someone stumbles and loses their way, it doesn’t mean they are lost forever<br>
+                - Professor X
+            </div>
+            <!-- Rectangle button -->
+            <div class="rectangle-button">GET STARTED</div>
         </div>
     </div>
 </div>
