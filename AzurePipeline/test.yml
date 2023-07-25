@@ -18,7 +18,8 @@ steps:
     inputs:
       command: 'restore'
       projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
-      arguments: '--no-incremental'
+      feedsToUse: 'select'
+      vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
 
   - task: SonarCloudPrepare@1
     inputs:
