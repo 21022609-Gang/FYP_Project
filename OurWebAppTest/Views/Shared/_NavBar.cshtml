@@ -1,12 +1,16 @@
-﻿<head>
+<head>
     <style>
+        body {
+            margin: 0; 
+        }
 
         header {
-            background-color: white;
+            background-color: #ECECE9; 
             height: 60px;
             position: relative;
             display: flex;
             align-items: center;
+            margin: 0; /* Add margin: 0; to remove any gap above the header */
         }
 
         .logo {
@@ -22,8 +26,8 @@
         .lih {
             display: inline-block;
             margin-right: 20px;
-            padding: 10px 10px;
             cursor: pointer;
+            font-family: 'Inter', sans-serif; 
         }
 
         .lih:hover {
@@ -32,15 +36,16 @@
 
         a {
             text-decoration: none;
-            color: black
+            color: black;
+            font-family: 'Inter', sans-serif; 
         }
-
     </style>
 </head>
 
+<body>
 <header>
     <div>
-        <img class= "logo" src="~/images/anotherchance.png"/>
+        <img class="logo" src="~/images/anotherchance.png"/>
     </div>
 
     <div class="menu">
@@ -56,5 +61,7 @@
             </div>
         </div>
     </div>
-
 </header>
+
+</body>
+</html>
