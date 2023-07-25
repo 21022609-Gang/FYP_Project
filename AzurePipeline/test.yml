@@ -54,7 +54,7 @@ steps:
   - task: WhiteSource@21
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
-      projectName: 'FYP_Project'
+      projectName: '$(projectName)'
 
   - task: SonarCloudPublish@1
     inputs:
