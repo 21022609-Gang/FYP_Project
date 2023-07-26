@@ -131,24 +131,8 @@
     </style>
 </head>
 <body>
-    <header>
-        <div>
-            <img class="logo" src="~/images/anotherchance.png"/>
-        </div>
-        <div class="menu">
-            <div class="ul">
-                <div class="li lih">About</div>
-                <div class="li lih">Resources</div>
-                <div class="li lih">Jobs</div>
-                <div class="li lih">
-                    <a asp-controller="AppUser" asp-action="LoginAppUser">Login</a>
-                </div>
-                <div class="li lih">
-                    <a asp-controller="AppUser" asp-action="CreateAppUser">Sign up</a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <partial name = "_NavBar" />
+
     <div class="container-custom">
         <div class="color-rectangle">
             <div class="image-container">
