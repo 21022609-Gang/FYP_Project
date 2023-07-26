@@ -5,10 +5,18 @@ using OurWebAppTest.Views.Shared;
 using System;
 using System.Data;
 using MySql.Data.MySqlClient;
-
+using Microsoft.Extensions.Configuration;
 
 public class AppUserController : Controller
 {
+    private readonly IConfiguration _configuration;
+
+    public AppUserController(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    private const string ConnectionStringKey = "MyDbConnection";
 
     public IActionResult CreateAppUser()
     {
@@ -56,12 +64,12 @@ public class AppUserController : Controller
 
     public ActionResult MyAction()
     {
-        string connectionString = "server=db4free.net;database=rp21022609;uid=rp21022609;pwd=rp21022609;";
+        string? connectionString = _configuration.GetConnectionString(ConnectionStringKey);
         MySqlConnection connection = new MySqlConnection(connectionString);
         try
         {
             connection.Open();
-            string sql = "INSERT INTO Test VALUES (5)";
+            string sql = "INSERT INTO Test VALUES (10)";
             MySqlCommand command = new MySqlCommand(sql, connection);
             command.ExecuteNonQuery();
             TempData["Msg"] = "User created successfully!";

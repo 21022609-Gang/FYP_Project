@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\OurWebAppTest",
-    "\\OurWebAppTest\\Models",
-    "\\OurWebAppTest\\Views\\Home",
-    "\\OurWebAppTest\\Views\\Shared",
-    "\\OurWebAppTest\\wwwroot",
-    "\\OurWebAppTest\\wwwroot\\images"
+    ""
   ],
-  "SelectedNode": "\\OurWebAppTest\\OurWebAppTest.csproj",
   "PreviewInSolutionExplorer": false
 }
