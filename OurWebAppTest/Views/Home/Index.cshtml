@@ -56,7 +56,7 @@
         }
 
         .color-rectangle {
-            width: 100%; 
+            width: 100%;
             height: 765px;
             background-color: #538AC6;
         }
@@ -64,23 +64,23 @@
         .image-container {
             position: relative;
             display: flex;
-            justify-content: center; 
-            align-items: center; 
+            justify-content: center;
+            align-items: center;
             height: 100%;
         }
 
         .centered-image {
-            width: 100%; 
+            width: 100%;
             height: auto;
             max-height: 100%;
         }
 
         .text-container {
             text-align: left;
-            color: #000;
-            font-size: 40px; 
-            line-height: 1.6; 
-            margin-left: 50px; 
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.6;
+            margin-left: 50px;
         }
 
         .bold-text {
@@ -91,11 +91,12 @@
         /* New container styles */
         .new-container {
             max-width: 100%;
-            height: 260px; 
-            background-color: #F5F7FA;
+            height: 260px;
+            background-color: #F9FBFC;
             margin: 0 auto;
             margin-top: 50px;
             text-align: center;
+            padding: 20px;
         }
 
         .new-container .inner-content {
@@ -103,18 +104,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
         }
 
         .get-started-text {
             font-weight: bold;
             font-size: 48px;
+            color: #000;
+            margin-bottom: 10px;
         }
 
         .quote-text {
             font-size: 18px;
             line-height: 1.5;
-            margin-top: 10px;
+            color: #000;
+            margin-bottom: 20px;
         }
 
         .rectangle-button {
@@ -126,14 +129,157 @@
             align-items: center;
             color: #fff;
             font-size: 18px;
-            margin-top: 10px;
         }
+
+        .testimonials-container {
+            max-width: 100%;
+            height: 400px;
+            background-color: #1574D2;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonials-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-box {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #fff;
+        }
+
+        .testimonial-box p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .jobs-container {
+            max-width: 100%;
+            background-color: #538AC6;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .jobs-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .category-container .category-item {
+            flex-basis: 180px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .category-button {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto 10px;
+            cursor: pointer;
+        }
+
+        .category-container p {
+            font-size: 18px;
+        }
+
+        .sitemap-container {
+            max-width: 100%;
+            height: 150px;
+            background-color: #ECECE9;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+        }
+
+        .sitemap-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .sitemap-container ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sitemap-container li {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 10px;
+        }
+
+        .aboutus-container {
+            max-width: 100%;
+            height: 200px;
+            background-color: #F9FBFC;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .aboutus-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .aboutus-container p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .read-more-button {
+            display: inline-block;
+            background-color: #1574D2;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
     </style>
 </head>
 <body>
-    <partial name = "_NavBar" />
+    <partial name="_NavBar" />
 
-    <div class="container-custom">
+     <div class="container-custom">
         <div class="color-rectangle">
             <div class="image-container">
                 <img src="~/images/handshake.jpg" alt="Centered Image" class="centered-image">
@@ -143,6 +289,7 @@
                 </div>
             </div>
         </div>
+
         <div class="new-container">
             <div class="inner-content">
                 <div class="get-started-text">GET STARTED HERE</div>
@@ -154,6 +301,92 @@
                     <a asp-controller="AppUser" style="text-decoration: none; color: white" asp-action="CreateAppUser">GET STARTED</a>
                 </div>
             </div>
+        </div>
+
+        <div class="testimonials-container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Job:</strong> Software Engineer</p>
+                    <p><strong>Testimonial:</strong> "AnotherChance helped me find my dream job, and I couldn't be happier!"</p>
+                </div>
+            </div>
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <p><strong>Name:</strong> Jane Smith</p>
+                    <p><strong>Job:</strong> Marketing Specialist</p>
+                    <p><strong>Testimonial:</strong> "The support and resources provided by AnotherChance made a huge difference in my job search."</p>
+                </div>
+            </div>
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <p><strong>Name:</strong> Michael Johnson</p>
+                    <p><strong>Job:</strong> Sales Representative</p>
+                    <p><strong>Testimonial:</strong> "I never thought I'd get a second chance, but AnotherChance made it possible."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs-container">
+            <h2>Jobs by Popular Categories</h2>
+            <div class="category-container">
+                <div class="category-item">
+                    <a href="#">
+                        <img src="~/images/Delivery.png" alt="Delivery" class="category-button" />
+                    </a>
+                    <p>Delivery</p>
+                </div>
+                <div class="category-item">
+                    <a href="#">
+                        <img src="~/images/Events.png" alt="Events" class="category-button" />
+                    </a>
+                    <p>Events</p>
+                </div>
+                <div class="category-item">
+                    <a href="#">
+                        <img src="~/images/F&B.png" alt="Food & Beverage" class="category-button" />
+                    </a>
+                    <p>Food & Beverage</p>
+                </div>
+                <div class="category-item">
+                    <a href="#">
+                        <img src="~/images/Retail.png" alt="Retail" class="category-button" />
+                    </a>
+                    <p>Retail</p>
+                </div>
+                <div class="category-item">
+                    <a href="#">
+                        <img src="~/images/Warehouse.png" alt="Warehouse" class="category-button" />
+                    </a>
+                    <p>Warehouse</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sitemap-container">
+            <h2>Sitemap</h2>
+            <div class="sitemap-content">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Find Jobs</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Data Protection Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="aboutus-container">
+            <h2>About Us</h2>
+            <p>AnotherChance is a platform dedicated to empowering job seekers and fostering inclusivity in the job market. Our mission is to connect individuals facing difficulties in finding employment with employers who prioritize diversity and provide equal opportunities.</p>
+            <a href="#" class="read-more-button">Read More</a>
         </div>
     </div>
 </body>
