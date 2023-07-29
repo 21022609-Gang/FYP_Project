@@ -40,6 +40,28 @@ public class AppUserController : Controller
 
     }
 
+    public IActionResult CreateAppUserEmployer()
+    {
+        return View("AppUserCreateEmployer");
+    }
+
+    [HttpPost]
+    public IActionResult CreateAppUserEmployer(AppUser user)
+    {
+        if (ModelState.IsValid)
+        {
+
+        }
+        else
+        {
+            TempData["msg"] = "Invalid information entered!";
+        }
+
+
+        return RedirectToAction("Main");
+
+    }
+
     public IActionResult LoginAppUser()
     {
         return View("AppUserLogin");

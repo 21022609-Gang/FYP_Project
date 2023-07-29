@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NbP3NucjX3xAJU90PlPwwOEYxeUBRp9Uco4XFKdOUGs=",
+  "Hash": "oENNsztHQCqAlpZT57rad9JW967d78l9cPSgSiwWfCA=",
   "Source": "OurWebAppTest",
   "BasePath": "_content/OurWebAppTest",
   "Mode": "Default",
@@ -85,6 +85,57 @@
       "OriginalItemSpec": "wwwroot\\images\\anotherchance.png"
     },
     {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Delivery.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/Delivery.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Delivery.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Events.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/Events.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Events.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\F&B.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/F&B.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\F&B.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\facebook.png",
       "SourceId": "OurWebAppTest",
       "SourceType": "Discovered",
@@ -117,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\handshake.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Retail.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/Retail.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Retail.png"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\sky2.png",
@@ -219,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\startingPage\\Retail.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Warehouse.png",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "images/Warehouse.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Warehouse.png"
     },
     {
       "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\js\\site.js",
@@ -1205,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\scripts\\index.js",
+      "SourceId": "OurWebAppTest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\",
+      "BasePath": "_content/OurWebAppTest",
+      "RelativePath": "scripts/index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\scripts\\index.js"
     }
   ]
 }

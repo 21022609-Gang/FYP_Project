@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Delivery.png",
+      "PackagePath": "staticwebassets\\images\\Delivery.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Events.png",
+      "PackagePath": "staticwebassets\\images\\Events.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\F&B.png",
+      "PackagePath": "staticwebassets\\images\\F&B.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Retail.png",
+      "PackagePath": "staticwebassets\\images\\Retail.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Warehouse.png",
+      "PackagePath": "staticwebassets\\images\\Warehouse.png"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\anotherchance.png",
       "PackagePath": "staticwebassets\\images\\anotherchance.png"
     },
@@ -279,6 +299,10 @@
     {
       "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\scripts\\index.js",
+      "PackagePath": "staticwebassets\\scripts\\index.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.OurWebAppTest.Microsoft.AspNetCore.StaticWebAssets.props",
