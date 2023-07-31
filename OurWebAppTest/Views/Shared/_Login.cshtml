@@ -75,7 +75,7 @@
     </style>
 </head>
 
-<form asp-controller="AppUser" asp-action="LoginAppUser">
+<form asp-controller="AppUser" asp-action="LoginAppUser" method="post">
     <div style="padding: 20px">
         <label asp-for="Email">Email</label>
         <div class="form-check">
@@ -87,7 +87,7 @@
     <div style="padding: 20px">
         <label asp-for="Password">Password</label>
         <div class="form-check">
-            <input class="inputTxt" type="text" placeholder="Password"
+            <input class="inputTxt" type="password" placeholder="Password"
                    asp-for="Password" />
         </div>
     </div>

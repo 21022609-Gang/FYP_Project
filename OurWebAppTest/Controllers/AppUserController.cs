@@ -6,6 +6,8 @@ using System;
 using System.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
+using RP.SOI.DotNet.Services;
+using RP.SOI.DotNet.Utils;
 
 public class AppUserController : Controller
 {
@@ -15,8 +17,6 @@ public class AppUserController : Controller
     {
         _configuration = configuration;
     }
-
-    private const string ConnectionStringKey = "MyDbConnection";
 
     public IActionResult CreateAppUser()
     {
@@ -68,38 +68,50 @@ public class AppUserController : Controller
     }
 
     [HttpPost]
-    public IActionResult AppUserLogin(AppUser user)
+    public IActionResult LoginAppUser(string email, string password)
     {
         if (ModelState.IsValid)
         {
-
+            string sql = @"SELECT * FROM `User` 
+                WHERE Email = '"+email+"' AND PASSWORD = '"+password+"'";
+            DataTable check = DBUtl.GetTable(sql);
+            if(check.Rows.Count == 1)
+            {
+                TempData["Msg"] = "Welcome";
+                return View("AppUserCreate");
+            }
+            else
+            {
+                TempData["Msg"] = DBUtl.DB_Message;
+                return RedirectToAction("LoginAppUser");
+            }
         }
         else
         {
-            TempData["msg"] = "Invalid information entered!";
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors)
+                                          .Select(e => e.ErrorMessage);
+            foreach (var errorMessage in errorMessages)
+            {
+                TempData["Msg"] = errorMessage;
+            }
+
+            return RedirectToAction("LoginAppUser");
         }
-
-
-        return RedirectToAction("Main");
 
     }
 
     public ActionResult MyAction()
     {
-        string? connectionString = _configuration.GetConnectionString(ConnectionStringKey);
-        MySqlConnection connection = new MySqlConnection(connectionString);
-        try
+        
+        string sql = @"INSERT INTO Test VALUES (300)";
+        int rowsAffected = DBUtl.ExecSQL(sql);
+        if(rowsAffected == 1)
         {
-            connection.Open();
-            string sql = "INSERT INTO Test VALUES (10)";
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            command.ExecuteNonQuery();
-            TempData["Msg"] = "User created successfully!";
-            connection.Close();
+            TempData["Msg"] = "We did it";
         }
-        catch (Exception ex)
+        else
         {
-            TempData["Msg"] = "Error creating user: " + ex.Message;
+            TempData["Msg"] = DBUtl.DB_Message;
         }
 
         return View("AppUserCreate");
