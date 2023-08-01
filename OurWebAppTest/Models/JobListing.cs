@@ -31,5 +31,5 @@ public partial class JobListing
     [ValidateNever]
     public virtual ICollection<Interview> Interview { get; set; } = new List<Interview>();
     [ValidateNever]
-    public virtual User User { get; set; } = null!;
+    public virtual AppUser User { get; set; } = null!;
 }

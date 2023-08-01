@@ -20,7 +20,7 @@ public class AppUserController : Controller
 
     public IActionResult CreateAppUser()
     {
-        return View("AppUserCreate");
+        return View("CreateAppUser");
     }
 
     [HttpPost]
@@ -28,7 +28,7 @@ public class AppUserController : Controller
     {
         if (ModelState.IsValid)
         {
-
+            return View("CreateAppUser");
         }
         else
         {
@@ -36,13 +36,13 @@ public class AppUserController : Controller
         }
 
 
-        return RedirectToAction("Main");
+        return RedirectToAction("CreateAppUser");
 
     }
 
     public IActionResult CreateAppUserEmployer()
     {
-        return View("AppUserCreateEmployer");
+        return View("CreateAppUserEmployer");
     }
 
     [HttpPost]
@@ -58,7 +58,7 @@ public class AppUserController : Controller
         }
 
 
-        return RedirectToAction("Main");
+        return RedirectToAction("CreateAppUser");
 
     }
 
@@ -78,7 +78,7 @@ public class AppUserController : Controller
             if(check.Rows.Count == 1)
             {
                 TempData["Msg"] = "Welcome";
-                return View("AppUserCreate");
+                return View("CreateAppUser");
             }
             else
             {
@@ -114,6 +114,6 @@ public class AppUserController : Controller
             TempData["Msg"] = DBUtl.DB_Message;
         }
 
-        return View("AppUserCreate");
+        return View("CreateAppUser");
     }
 }

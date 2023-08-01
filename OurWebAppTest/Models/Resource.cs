@@ -15,5 +15,5 @@ public partial class Resource
 
     public string Type { get; set; } = null!;
     [ValidateNever]
-    public virtual User User { get; set; } = null!;
+    public virtual AppUser User { get; set; } = null!;
 }

@@ -23,5 +23,5 @@ public partial class Interview
 
     public virtual JobListing Job { get; set; } = null!;
     [ValidateNever]
-    public virtual User User { get; set; } = null!;
+    public virtual AppUser User { get; set; } = null!;
 }

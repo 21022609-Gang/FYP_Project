@@ -1,0 +1,97 @@
+@{
+    Layout = "_Default";
+}
+
+@model AppUser
+@*Rename to ___Create later*@
+
+<head>
+    <style>
+
+        .containerSplit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            padding: 20px;
+        }
+
+        .inputTxt {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 8px;
+            width: 100%;
+            height: 35px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+
+        label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="loader"></div>
+    <div class="container-fluid">
+
+        <h1 style="margin-left: 20px;">Create An Account</h1>
+
+        <div class="container-fluid" style="margin-left: 20px; margin-right: 20px;">
+            <form asp-controller="AppUser" asp-action="CreateAppUser" method="post">
+                <div class="containerSplit">
+                    <div class="left">
+                        <label asp-for="FirstName" style="margin-bottom:10px">First Name</label>
+                        <div class="form-check">
+                            <input class="inputTxt" type="text" placeholder="First Name"
+                                   asp-for="FirstName" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <label asp-for="LastName" style="margin-bottom:10px">Last Name</label>
+                        <div class="form-check">
+                            <input class="inputTxt" type="text" placeholder="Last Name"
+                                   asp-for="LastName" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 20px">
+                    <label asp-for="Email">Email</label>
+                    <div class="form-check">
+                        <input class="inputTxt" type="text" placeholder="Email"
+                               asp-for="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div style="padding: 20px">
+                    <label asp-for="Password">Password</label>
+                    <div class="form-check">
+                        <input class="inputTxt" type="text" placeholder="Password"
+                               asp-for="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div style="padding: 20px;">
+                    <input type="submit" value="Create an Account"
+                           class="btn btn-primary submitbtn" style="width: 100%;" />
+
+                    <div style="margin-top: 10px">
+                        <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
+                    </div>
+                </div>
+
+                <partial name="_SignUp" />
+            </form>
+        </div>
+    </div>
+
+</body>
