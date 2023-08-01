@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>AboutUs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container-custom {
+            width: 100%;
+            max-width: 1900px;
+            min-width: 300px;
+            margin: 0 auto;
+            overflow: auto;
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .logo2 {
+            object-fit: contain;     
+        }
+
+        .sitemap-container {
+            flex: 0 0 auto;
+            background-color: #ECECE9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .sitemap-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .sitemap-container ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sitemap-container li {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 10px;
+        }
+
+        .aboutus-container {
+            flex: 0 0 auto;
+            background-color: #F9FBFC;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .aboutus-container h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .aboutus-container p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .read-more-button {
+            display: inline-block;
+            background-color: #1574D2;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .rectangle-button {
+            width: 157px;
+            height: 44px;
+            background-color: #1574D2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px auto; /* Center the button horizontally */
+        }
+
+    </style>
+</head>
+<body>
+    <partial name="_NavBar" />
+
+    <div class="container-custom">
+        <div class="aboutus-container">
+            <div class="logo-container">
+                <img class="logo2" src="~/images/anotherchance.png" alt="AnotherChance Logo" />
+            </div>
+
+            <div class="aboutus-summary">
+                <h2>About Us:</h2>
+                <p>AnotherChance is a platform that aims to bridge the gap between job seekers and inclusive employers. We are driven by the belief that everyone deserves an equal opportunity to find meaningful employment, regardless of their past experiences or challenges. Our mission is to create a more inclusive society by connecting job seekers with employers who prioritize diversity, equity, and inclusion.</p>
+                <p>With AnotherChance, job seekers can explore a diverse range of job listings from companies committed to fostering inclusive work environments. We curate opportunities from various industries, ensuring there is a perfect fit for every individual. Our platform goes beyond job listings by providing comprehensive resources and tools to support job seekers throughout their journey. From crafting impressive resumes to excelling in job interviews, we offer valuable guidance every step of the way.</p>
+                <p>At AnotherChance, we strongly believe in the power of mentorship and support. That's why we provide access to mentorship programs where job seekers can connect with experienced professionals who offer guidance, industry insights, and valuable advice. We understand the challenges associated with finding a job, and through our platform, we strive to create a supportive environment.</p>
+                <p>Join AnotherChance today and embark on a journey of empowerment and opportunity. Together, let's build a more inclusive society where everyone has an equal chance to build a successful career.</p>
+                <p>So what are you waiting for? Don't miss out on the chance to connect with inclusive employers and unlock your full potential. Click the "Get Started" button now and embark on a rewarding journey towards finding the job you deserve!</p>
+            </div>
+
+            <div class="rectangle-button">
+                <a asp-controller="AppUser" style="text-decoration: none; color: white" asp-action="CreateAppUser">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="sitemap-container">
+        <h2>Sitemap</h2>
+        <div class="sitemap-content">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Aboutus">About Us</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Find Jobs</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a asp-controller="AppUser" asp-action="LoginAppUser">Login</a></li>
+                <li><a asp-controller="AppUser" asp-action="CreateAppUser">Sign Up</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Data Protection Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
