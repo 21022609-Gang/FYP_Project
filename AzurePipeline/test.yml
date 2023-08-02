@@ -71,10 +71,3 @@ steps:
         dockerVersion: 17.09.0-ce
         releaseType: stable
 
-  - task: Docker@2
-    displayName: Build and Push
-    inputs:
-       command: buildAndPush
-        repository:   denisepzq/newimage # username/contosoRepository for DockerHub
-        Dockerfile: /workspaces/FYP_Project/dotnet-docker/Dockerfile
-
