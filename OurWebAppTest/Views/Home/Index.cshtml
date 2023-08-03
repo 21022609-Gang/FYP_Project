@@ -52,8 +52,6 @@
             font-weight: bold;
             font-size: 65px;
         }
-
-        /* New container styles */
         .new-container {
             flex: 0 0 auto;
             background-color: #F9FBFC;
@@ -258,7 +256,7 @@
             <div class="inner-content">
                 <div class="get-started-text">GET STARTED HERE</div>
                 <div class="quote-text">
-                    Just because someone stumbles and loses their way, it doesn’t mean they are lost forever<br>
+                    "Just because someone stumbles and loses their way, it doesn’t mean they are lost forever"<br>
                     - Professor X
                 </div>
                 <div class="rectangle-button">
@@ -332,13 +330,12 @@
             <h2>Sitemap</h2>
             <div class="sitemap-content">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a href="#">Resources</a></li>
                     <li><a href="#">Find Jobs</a></li>
                     <li><a href="#">Categories</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a asp-controller="AppUser" asp-action="LoginAppUser">Login</a></li>
+                    <li><a asp-controller="AppUser" asp-action="CreateAppUser">Sign Up</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Terms of Service</a></li>
                     <li><a href="#">Privacy Policy</a></li>
@@ -350,7 +347,7 @@
         <div class="aboutus-container">
             <h2>About Us</h2>
             <p>AnotherChance is a platform dedicated to empowering job seekers and fostering inclusivity in the job market. Our mission is to connect individuals facing difficulties in finding employment with employers who prioritize diversity and provide equal opportunities.</p>
-            <a href="#" class="read-more-button">Read More</a>
+            <a asp-controller="Home" asp-action="Aboutus" class="read-more-button">Read More</a>
         </div>
     </div>
 </body>
