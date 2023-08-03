@@ -58,6 +58,26 @@
                                asp-for="LastName" />
                     </div>
                 </div>
+
+            </div>
+
+            <div style="padding: 20px">
+                <label asp-for="Email">Email</label>
+                <input class="inputTxt" type="text" placeholder="Email"
+                       asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div style="padding: 20px">
+                <label asp-for="Password">Password</label>
+                <input class="inputTxt" type="text" placeholder="Password"
+                       asp-for="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div style="padding: 20px;">
+                <input type="submit" value="Create an Account"
+                       class="btn btn-primary submitbtn" style="width: 100%;" />
             </div>
 
             <partial name="_SignUp" />

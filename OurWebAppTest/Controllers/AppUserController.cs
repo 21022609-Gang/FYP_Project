@@ -28,15 +28,14 @@ public class AppUserController : Controller
     {
         if (ModelState.IsValid)
         {
-            return View("CreateAppUser");
+
+            return RedirectToAction("CreateAppUser");
         }
         else
         {
             TempData["msg"] = "Invalid information entered!";
+            return View("CreateAppUser");
         }
-
-
-        return RedirectToAction("CreateAppUser");
 
     }
 
