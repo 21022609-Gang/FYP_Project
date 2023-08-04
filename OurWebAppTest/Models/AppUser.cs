@@ -33,14 +33,16 @@ public partial class AppUser
     public int? Age { get; set; }
 
     [Required(ErrorMessage = "No Date of Birth Inputted")]
-    public DateOnly? Dob { get; set; }
+    public DateOnly Dob { get; set; }
 
+    [StringLength(50, ErrorMessage = "Test")] //doesnt work if not here
     public string HighestEdu { get; set; } = null!;
 
     [Required(ErrorMessage = "No Self Declaration")]
     public string SelfDec { get; set; } = null!;
 
     public string Pfp { get; set; } = null!;
+
     [Required(ErrorMessage = "No Contact Info Inputted")]
     [StringLength(8, MinimumLength = 8, ErrorMessage = "8 characters only.")]
     [RegularExpression(@"^\d{8}$", ErrorMessage = "Only Numbers allowed")]

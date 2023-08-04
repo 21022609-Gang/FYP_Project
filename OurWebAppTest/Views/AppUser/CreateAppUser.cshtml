@@ -92,9 +92,11 @@
                         <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
                     </div>
                 </div>
-
                 <partial name="_SignUp" />
             </form>
+            <div>
+                @TempData["Msg"]
+            </div>
             <a asp-controller="AppUser" asp-action="CreateAppUser2">sign up page 2</a>
         </div>
     </div>

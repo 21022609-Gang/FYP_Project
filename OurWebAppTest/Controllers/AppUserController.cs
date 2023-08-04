@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using RP.SOI.DotNet.Services;
 using RP.SOI.DotNet.Utils;
 using System.ComponentModel;
+using System.Text;
+using OurWebAppTest.Services;
+using System.Text.RegularExpressions;
 
 public class AppUserController : Controller
 {
@@ -24,6 +27,11 @@ public class AppUserController : Controller
         return View("TaC");
     }
 
+    public IActionResult Welcome()
+    {
+        return View("Home/Welcome");
+    }
+
     public IActionResult CreateAppUser()
     {
         return View("CreateAppUser");
@@ -32,14 +40,48 @@ public class AppUserController : Controller
     [HttpPost]
     public IActionResult CreateAppUser(AppUser user)
     {
-        if (ModelState.IsValid)
-        {
+        var helper = new Helper(ModelState);
 
-            return RedirectToAction("CreateAppUser");
+        if (helper.ValidatePart(nameof(AppUser.FirstName)) &&
+            helper.ValidatePart(nameof(AppUser.LastName)) &&
+            helper.ValidatePart(nameof(AppUser.Email)) &&
+            helper.ValidatePart(nameof(AppUser.Password)))
+        {
+            string sql = @"SELECT * FROM `AppUser` WHERE Email = @Email";
+            int check = DBUtl.ExecSQL(sql, new MySqlParameter("@Email", user.Email));
+
+            if (check > 0 || check == -1)
+            {
+                ModelState.AddModelError("Email", "Email has already been used");
+                TempData["Msg"] = DBUtl.DB_Message;
+                return View("CreateAppUser");
+            }
+
+            TempData["FName"] = user.FirstName;
+            TempData["LName"] = user.LastName;
+            TempData["Email"] = user.Email;
+            TempData["Password"] = user.Password;
+            return RedirectToAction("CreateAppUser2");
         }
         else
         {
-            TempData["msg"] = "Invalid information entered!";
+            /* Use to check for errors
+            // Create a StringBuilder to accumulate error messages
+            var errorMessageBuilder = new StringBuilder();
+
+            foreach (var modelStateEntry in ModelState.Values)
+            {
+                foreach (var error in modelStateEntry.Errors)
+                {
+                    // Append the error message to the StringBuilder
+                    errorMessageBuilder.AppendLine(error.ErrorMessage);
+                }
+            }
+
+            // Store the concatenated error messages in TempData
+            TempData["msg"] = errorMessageBuilder.ToString();
+            */
+
             return View("CreateAppUser");
         }
 
@@ -69,10 +111,67 @@ public class AppUserController : Controller
     [HttpPost]
     public IActionResult CreateAppUser2(AppUser user)
     {
-        if (ModelState.IsValid)
-        {
+        var helper = new Helper(ModelState);
+        string regPat = @"\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])"; //use to check date stuff cus asp does not work??
 
-            return RedirectToAction("CreateAppUser2");
+        if (TempData["Fname2"] != null)
+        {
+            TempData["Fname"] = TempData["Fname2"];
+            TempData["LName2"] = TempData["LName"] as string;
+            TempData["Email2"] = TempData["Email"] as string;
+            TempData["Password2"] = TempData["Password"] as string;
+        }
+
+        string? FName = TempData["FName"] as string;
+        string? LName = TempData["LName"] as string;
+        string? Email = TempData["Email"] as string;
+        string? Password = TempData["Password"] as string;
+        string formatDOB = user.Dob.ToString("yyyy-MM-dd");
+        bool datecheck = false;
+
+        if (Regex.IsMatch(formatDOB, regPat))
+        {
+            if(user.Dob.Year < 2023)
+            {
+                datecheck = true;
+            }
+            else
+            {
+                ModelState.AddModelError("Dob", "Invalid Year");
+            }
+        }
+        else
+        {
+            ModelState.AddModelError("Dob", "Invalid Format");
+        }
+
+        if (helper.ValidatePart(nameof(AppUser.Dob)) &&
+            helper.ValidatePart(nameof(AppUser.HighestEdu)) &&
+            helper.ValidatePart(nameof(AppUser.ContactInfo)) &&
+            datecheck
+            )
+        {
+            int age = helper.CalcAge(user.Dob);
+
+            string sql = @"INSERT INTO AppUser (FirstName, LastName, Email, Password
+                            , DOB, Age, HighestEdu, ContactInfo, Consent)
+                            VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}', '{7}', {8});";
+
+            string sqlFormat = string.Format(sql, FName, LName, Email, Password,
+                formatDOB, age, user.HighestEdu, user.ContactInfo, 1);
+
+            int check = DBUtl.ExecSQL(sqlFormat);
+            
+            if(check != 1)
+            {
+                TempData["Msg"] = DBUtl.DB_Message;
+                return View("CreateAppUser2");
+            }
+            else
+            {
+                return View("Home/Welcome");
+            }
+
         }
         else
         {
@@ -89,9 +188,11 @@ public class AppUserController : Controller
                 new SelectListItem { Value = "Doctoral", Text = "Doctoral" }
             };
 
-            TempData["msg"] = "Invalid information entered!";
-
             ViewData["HighestEducation"] = new SelectList(HighestEducation, "Value", "Text");
+            TempData["Fname2"] = TempData["FName"] as string;
+            TempData["LName2"] = TempData["LName"] as string;
+            TempData["Email2"] = TempData["Email"] as string;
+            TempData["Password2"] = TempData["Password"] as string;
             return View("CreateAppUser2");
         }
 

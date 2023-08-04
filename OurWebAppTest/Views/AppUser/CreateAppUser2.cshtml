@@ -85,7 +85,8 @@
                     <div class="right">
                         <label asp-for="HighestEdu" style="margin-bottom:10px">Highest Education</label>
                         <div>
-                            <select id="HighestEdu" class="form-select form-select-sm inputTxt"
+                            <select id="HighestEdu" asp-for="HighestEdu"
+                                class="form-select form-select-sm inputTxt"
                                 asp-items="@((SelectList)ViewData["HighestEducation"]!)">
                             </select>
                         </div>
@@ -127,9 +128,14 @@
                         <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
                     </div>
                 </div>
+                <div>
+                    @TempData["Msg"]
+                </div>
 
                 <partial name="_SignUp" />
             </form>
+
+
         </div>
     </div>
 
