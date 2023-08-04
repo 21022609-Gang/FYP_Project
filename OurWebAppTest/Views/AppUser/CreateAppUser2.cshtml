@@ -12,7 +12,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 30px;
-            padding: 20px;
+            padding: 10px;
         }
 
         .inputTxt {
@@ -42,6 +42,25 @@
         }
 
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var consentCheckbox = document.getElementById("cbConsent");
+
+            var form = document.querySelector("form");
+
+            form.addEventListener("submit", function (event) {
+                // check value on cb
+                var consentValue = consentCheckbox.checked;
+
+                if (!consentValue) {
+                    event.preventDefault(); // form from submitting
+                    alert("You must accept the terms and conditions to proceed")
+                }
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -51,26 +70,66 @@
         <h1 style="margin-left: 20px;">Create An Account</h1>
 
         <div class="container-fluid" style="margin-left: 20px; margin-right: 20px;">
+             <form asp-controller="AppUser" asp-action="CreateAppUser2" method="post">
+                <div class="containerSplit">
+                    <div class="left">
+                        <label asp-for="Dob" style="margin-bottom:10px">Date Of Birth</label>
+                        <div>
+                            <input class="inputTxt" type="text" placeholder="MM/DD/YYYY"
+                                   asp-for="Dob" />
+                        </div>
+                        <span asp-validation-for="Dob"
+                            style=" color:red;font-weight:bold;"></span>
+                    </div>
 
-            <div class="containerSplit">
-                <div class="left">
-                    <label asp-for="FirstName" style="margin-bottom:10px">First Name</label>
-                    <div class="form-check">
-                        <input class="inputTxt" type="text" placeholder="First Name"
-                               asp-for="FirstName" />
+                    <div class="right">
+                        <label asp-for="HighestEdu" style="margin-bottom:10px">Highest Education</label>
+                        <div>
+                            <select id="HighestEdu" class="form-select form-select-sm inputTxt"
+                                asp-items="@((SelectList)ViewData["HighestEducation"]!)">
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="padding: 10px">
+                    <label asp-for="ContactInfo">Contact Information</label>
+                    <input class="inputTxt" type="text" placeholder="Contact Information"
+                            asp-for="ContactInfo" />
+                    <span asp-validation-for="ContactInfo"
+                        style="color:red;font-weight:bold;"></span>
+                </div>
+
+                <div style="padding: 10px">
+                    <label>Legal Documents</label>
+                    <input class="inputTxt" type="text" placeholder="Legal Documents Test" />
+                </div>
+
+                <div style="padding: 10px">
+                    <label>Self Declaration</label>
+                    <input class="inputTxt" type="text" placeholder="Self Declaration Test" />
+                </div>
+
+                <div style="padding: 10px">
+                    <input id="cbConsent" class="form-check-input" type="checkbox" />
+                    <label class="form-check-label inputxt" asp-for="Consent">
+                        I accept the <a style="color:purple"
+                        asp-controller="AppUser" asp-action="TermsAndConditions">Terms and Conditions</a>
+                    </label>
+                </div>
+
+                <div style="padding: 10px;">
+                    <input type="submit" value="Create an Account"
+                           class="btn btn-primary submitbtn" style="width: 100%;" />
+
+                    <div style="margin-top: 10px">
+                        <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
                     </div>
                 </div>
 
-                <div class="right">
-                    <label asp-for="LastName" style="margin-bottom:10px">Last Name</label>
-                    <div class="form-check">
-                        <input class="inputTxt" type="text" placeholder="Last Name"
-                               asp-for="LastName" />
-                    </div>
-                </div>
-            </div>
-
-            <partial name="_SignUp" />
+                <partial name="_SignUp" />
+            </form>
         </div>
     </div>
 

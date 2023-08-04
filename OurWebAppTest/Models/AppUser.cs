@@ -15,12 +15,12 @@ public partial class AppUser
     public string? FirstName { get; set; }
 
     [Required(ErrorMessage = "No Last Name Inputted")]
-    [StringLength(50, ErrorMessage = "Maximum of {1} characters allowed")]
+    [StringLength(50, ErrorMessage = "Maximum of 50 characters allowed")]
     [RegularExpression(@"^[A-Za-z]+$", ErrorMessage = "Only alphabetic characters are allowed")]
     public string? LastName { get; set; }
 
     [Required(ErrorMessage = "No Email Inputted")]
-    [StringLength(50, ErrorMessage = "Maximum of {1} characters allowed.")]
+    [StringLength(50, ErrorMessage = "Maximum of 50 characters allowed.")]
     [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
         ErrorMessage = "Invalid Email")]
     public string Email { get; set; } = null!;
@@ -33,9 +33,8 @@ public partial class AppUser
     public int? Age { get; set; }
 
     [Required(ErrorMessage = "No Date of Birth Inputted")]
-    public DateTime? Dob { get; set; }
+    public DateOnly? Dob { get; set; }
 
-    [Required(ErrorMessage = "Nothing Selected Inputted")]
     public string HighestEdu { get; set; } = null!;
 
     [Required(ErrorMessage = "No Self Declaration")]
@@ -43,10 +42,12 @@ public partial class AppUser
 
     public string Pfp { get; set; } = null!;
     [Required(ErrorMessage = "No Contact Info Inputted")]
+    [StringLength(8, MinimumLength = 8, ErrorMessage = "8 characters only.")]
+    [RegularExpression(@"^\d{8}$", ErrorMessage = "Only Numbers allowed")]
     public string ContactInfo { get; set; } = null!;
 
-    [Required(ErrorMessage = "You Said No")]
-    public byte Consent { get; set; }
+    [Required(ErrorMessage = "You must accept the terms and conditions to proceed.")]
+    public bool Consent { get; set; }
 
     [Required(ErrorMessage = "No Legal Documentation")]
     public int LegalDocs { get; set; }

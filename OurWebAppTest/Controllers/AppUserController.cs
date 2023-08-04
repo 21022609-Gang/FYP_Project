@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using RP.SOI.DotNet.Services;
 using RP.SOI.DotNet.Utils;
+using System.ComponentModel;
 
 public class AppUserController : Controller
 {
@@ -16,6 +17,11 @@ public class AppUserController : Controller
     public AppUserController(IConfiguration configuration)
     {
         _configuration = configuration;
+    }
+
+    public IActionResult TermsAndConditions()
+    {
+        return View("TaC");
     }
 
     public IActionResult CreateAppUser()
@@ -39,6 +45,58 @@ public class AppUserController : Controller
 
     }
 
+    public IActionResult CreateAppUser2()
+    {
+
+        List<SelectListItem> HighestEducation = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "Primary", Text = "Primary" },
+            new SelectListItem { Value = "N Levels", Text = "N Levels" },
+            new SelectListItem { Value = "O Levels", Text = "O Levels" },
+            new SelectListItem { Value = "A Levels", Text = "A Levels" },
+            new SelectListItem { Value = "Vocation", Text = "Vocation" },
+            new SelectListItem { Value = "Diploma", Text = "Diploma" },
+            new SelectListItem { Value = "Bachelor", Text = "Bachelor" },
+            new SelectListItem { Value = "Master", Text = "Master" },
+            new SelectListItem { Value = "Doctoral", Text = "Doctoral" }
+        };
+
+        ViewData["HighestEducation"] = new SelectList(HighestEducation, "Value", "Text");
+
+        return View("CreateAppUser2");
+    }
+
+    [HttpPost]
+    public IActionResult CreateAppUser2(AppUser user)
+    {
+        if (ModelState.IsValid)
+        {
+
+            return RedirectToAction("CreateAppUser2");
+        }
+        else
+        {
+            List<SelectListItem> HighestEducation = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "Primary", Text = "Primary" },
+                new SelectListItem { Value = "N Levels", Text = "N Levels" },
+                new SelectListItem { Value = "O Levels", Text = "O Levels" },
+                new SelectListItem { Value = "A Levels", Text = "A Levels" },
+                new SelectListItem { Value = "Vocation", Text = "Vocation" },
+                new SelectListItem { Value = "Diploma", Text = "Diploma" },
+                new SelectListItem { Value = "Bachelor", Text = "Bachelor" },
+                new SelectListItem { Value = "Master", Text = "Master" },
+                new SelectListItem { Value = "Doctoral", Text = "Doctoral" }
+            };
+
+            TempData["msg"] = "Invalid information entered!";
+
+            ViewData["HighestEducation"] = new SelectList(HighestEducation, "Value", "Text");
+            return View("CreateAppUser2");
+        }
+
+    }
+
     public IActionResult CreateAppUserEmployer()
     {
         return View("CreateAppUserEmployer");
@@ -54,6 +112,7 @@ public class AppUserController : Controller
         else
         {
             TempData["msg"] = "Invalid information entered!";
+            
         }
 
 

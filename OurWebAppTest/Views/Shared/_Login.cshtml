@@ -81,6 +81,8 @@
         <div class="form-check">
             <input class="inputTxt" type="text" placeholder="Email"
                    asp-for="Email" />
+            <span asp-validation-for="Email"
+                  style="color:red;font-weight:bold;"></span>
         </div>
     </div>
 
@@ -89,6 +91,8 @@
         <div class="form-check">
             <input class="inputTxt" type="password" placeholder="Password"
                    asp-for="Password" />
+            <span asp-validation-for="Password"
+                  style="color:red;font-weight:bold;"></span>
         </div>
     </div>
 
