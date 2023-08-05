@@ -47,12 +47,14 @@ public class AppUserController : Controller
             helper.ValidatePart(nameof(AppUser.Email)) &&
             helper.ValidatePart(nameof(AppUser.Password)))
         {
-            string sql = @"SELECT * FROM `AppUser` WHERE Email = @Email";
-            int check = DBUtl.ExecSQL(sql, new MySqlParameter("@Email", user.Email));
+            string emailTest = user.Email;
 
-            if (check > 0 || check == -1)
+            string sql = @"SELECT * FROM AppUser WHERE Email ='" + emailTest + "'";
+            DataTable check = DBUtl.GetTable(sql);
+
+            if (check.Rows.Count == 1)
             {
-                ModelState.AddModelError("Email", "Email has already been used");
+                ModelState.AddModelError("Email", "Email has already been registered");
                 TempData["Msg"] = DBUtl.DB_Message;
                 return View("CreateAppUser");
             }
@@ -231,7 +233,7 @@ public class AppUserController : Controller
     {
         if (ModelState.IsValid)
         {
-            string sql = @"SELECT * FROM `User` 
+            string sql = @"SELECT * FROM `AppUser` 
                 WHERE Email = '"+email+"' AND PASSWORD = '"+password+"'";
             DataTable check = DBUtl.GetTable(sql);
             if(check.Rows.Count == 1)
