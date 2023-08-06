@@ -35,6 +35,7 @@ public partial class AppUser
     [Required(ErrorMessage = "No Date of Birth Inputted")]
     public DateOnly Dob { get; set; }
 
+    [Required(ErrorMessage = "Select your Highest Education")]
     [StringLength(50, ErrorMessage = "Test")] //doesnt work if not here
     public string HighestEdu { get; set; } = null!;
 
@@ -53,6 +54,8 @@ public partial class AppUser
 
     [Required(ErrorMessage = "No Legal Documentation")]
     public int LegalDocs { get; set; }
+
+    public string UserRole { get; set; } = null!;
 
     [ValidateNever]
     public virtual ICollection<Application> Application { get; set; } = new List<Application>();

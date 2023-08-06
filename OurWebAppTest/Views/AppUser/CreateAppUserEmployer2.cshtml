@@ -88,8 +88,8 @@
                             <select id="HighestEdu" asp-for="HighestEdu"
                                 class="form-select form-select-sm inputTxt"
                                 asp-items="@((SelectList)ViewData["HighestEducation"]!)">
-                                <option value="">-- Select Highest Education --</option>
                             </select>
+                            <option value="">-- Select Highest Education --</option>
                             <span asp-validation-for="HighestEdu"
                                   style=" color:red;font-weight:bold;"></span>
                         </div>

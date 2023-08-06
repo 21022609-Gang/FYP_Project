@@ -1,0 +1,103 @@
+@{
+    Layout = "_Default";
+}
+
+@model Employer
+@*Rename to ___Create later*@
+
+<head>
+    <style>
+
+        .containerSplit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            padding: 10px;
+        }
+
+        .inputTxt {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 8px;
+            width: 100%;
+            height: 35px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+
+        label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .unselectable {
+          -webkit-touch-callout: none; /* Prevent iOS link highlight */
+          -webkit-user-select: none; /* Safari */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer */
+          user-select: none; /* Standard */
+          /* Optional: Add some visual cues to indicate unselectability */
+          cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid unselectable">
+
+        <h1 style="margin-left: 20px;">Create An Account</h1>
+
+        <div class="container-fluid" style="margin-left: 20px; margin-right: 20px;">
+            <form asp-controller="AppUser" asp-action="CreateEmployerAccount" method="post">
+                <div style="padding: 10px">
+                    <label>Name</label>
+                    <input class="inputTxt" type="text" placeholder="Name" />
+                </div>
+
+                <div style="padding: 10px">
+                    <label>Contact Information</label>
+                    <input class="inputTxt" type="text" placeholder="Contact Information" />
+                </div>
+
+                <div class="containerSplit">
+                    <div class="left">
+                        <label asp-for="CompanyName" style="margin-bottom:10px">Company Name</label>
+                        <input class="inputTxt" type="text" placeholder="Company Name"
+                               asp-for="CompanyName" />
+                        <span asp-validation-for="CompanyName"
+                              style="color:red;font-weight:bold;"></span>
+                    </div>
+
+                    <div class="right">
+                        <label asp-for="Industry" style="margin-bottom:10px">Industry</label>
+                        <div>
+                            <select id="Industry" asp-for="Industry"
+                                    class="form-select form-select-sm inputTxt"
+                                    asp-items="@((SelectList)ViewData["Industry"]!)">
+                                    <option value="">-- Select a Industry --</option>
+                            </select>
+                            <span asp-validation-for="Industry"
+                                  style=" color:red;font-weight:bold;"></span>s
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 10px;">
+                    <input type="submit" value="Create an Account"
+                           class="btn btn-primary submitbtn" style="width: 100%;" />
+
+                    <div style="margin-top: 10px">
+                        <span>Already Have an Account? </span><a href="https://youtu.be/dQw4w9WgXcQ">Login</a>
+                    </div>
+                </div>
+                <partial name="_SignUp" />
+            </form>
+            <div>
+                @TempData["Msg"]
+            </div>
+            <a asp-controller="AppUser" asp-action="CreateAppUser2">sign up page 2</a>
+        </div>
+    </div>
+
+</body>
