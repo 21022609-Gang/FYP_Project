@@ -1,73 +1,77 @@
+# This section defines the triggers for the pipeline
 trigger:
   branches:
     include:
-      - main
+      - main # Trigger the pipeline when changes are pushed to the 'main' branch
 
+# This section defines the schedules for the pipeline
 schedules:
-- cron: "0 19 * * *"
+- cron: "0 19 * * *" # Schedule a daily build at 19:00 UTC (7:00 PM)
   displayName: Daily build
   branches:
     include:
-      - main
+      - main # Schedule the daily build for the 'main' branch
 
+# This section specifies the agent pool to run the pipeline
 pool:
-  name: 'mycomputeragent'
+  name: 'mycomputeragent' # The agent pool to use for running the pipeline
 
+# This section contains the list of tasks to be executed in the pipeline
 steps:
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'restore'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      command: 'restore' # Restore NuGet packages
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj' # Project files to restore packages for
       feedsToUse: 'select'
-      vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec'
+      vstsFeed: 'e532e879-2c5f-49fa-8d91-4c53aac3a2ec' # VSTS feed to use for package sources
 
   - task: SonarCloudPrepare@1
     inputs:
-      SonarCloud: 'SonarCloud Service'
-      organization: '21022609-gang'
-      scannerMode: 'MSBuild'
-      ProjectKey: '21022609-Gang_FYP_Project'
-      ProjectName: 'FYP_Project'
+      SonarCloud: 'SonarCloud Service' # SonarCloud service connection name
+      organization: '21022609-gang' # SonarCloud organization key
+      scannerMode: 'MSBuild' # Use MSBuild to analyze the code
+      ProjectKey: '21022609-Gang_FYP_Project' # SonarCloud project key
+      ProjectName: 'FYP_Project' # SonarCloud project name
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'build'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
+      command: 'build' # Build the .NET Core project
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj' # Project files to build
 
-  - script: echo testing
+  - script: echo testing # Echo a message for testing
     displayName: Test
 
   - script: |
-      echo this is the hostname:
+      echo this is the hostname: # Echo the hostname
       echo ------------------------
       echo $HOSTNAME
     displayName: Test Script 2
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'test'
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj'
-      arguments: '--collect "Code Coverage"'
+      command: 'test' # Run unit tests
+      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj' # Project files to test
+      arguments: '--collect "Code Coverage"' # Collect code coverage during testing
 
-  - task: SonarCloudAnalyze@1
+  - task: SonarCloudAnalyze@1 # SonarCloud analyzing the code
 
-  - task: SonarCloudPublish@1
+  - task: SonarCloudPublish@1 # Publish results to SonarCloud
     inputs:
       pollingTimeoutSec: '300'
 
-  - task: WhiteSource@21
+  - task: WhiteSource@21 # Run WhiteSource to detect security vulnerabilities and problematic licenses
     inputs:
-      cwd: '$(System.DefaultWorkingDirectory)'
+      cwd: '$(System.DefaultWorkingDirectory)' # Set the current working directory
 
-  - task: Docker@2
+  - task: Docker@2 # Docker task to perform Docker-related operations
     displayName : Login to Docker Hub
     inputs:
-        command: login
-        containerRegistry: Docker_Hub #fypproject #dockerRegistryServiceConnection1 #
+        command: login # Login to Docker Hub
+        containerRegistry: Docker_Hub # Docker service connection name
+#fypproject #dockerRegistryServiceConnection1 # (These seem to be comments but not used in this task)
 
-  - task: DockerInstaller@0
+  - task: DockerInstaller@0 # Install Docker on the agent if required
     displayName: Docker Installer
     inputs:
-        dockerVersion: 17.09.0-ce
-        releaseType: stable
-
+        dockerVersion: 17.09.0-ce # Docker version to install
+        releaseType: stable # Use the stable release
