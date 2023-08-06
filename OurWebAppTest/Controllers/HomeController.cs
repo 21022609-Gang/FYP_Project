@@ -13,6 +13,21 @@ namespace OurWebAppTest.Controllers
             _logger = logger;
         }
 
+        public IActionResult TaC()
+        {
+            return View("TaC");
+        }
+
+        public IActionResult PrivPol()
+        {
+            return View("PrivPol");
+        }
+
+        public IActionResult DPP()
+        {
+            return View("DPP");
+        }
+
         public IActionResult Index()
         {
             return View();

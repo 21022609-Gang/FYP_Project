@@ -22,11 +22,6 @@ public class AppUserController : Controller
         _configuration = configuration;
     }
 
-    public IActionResult TermsAndConditions()
-    {
-        return View("TaC");
-    }
-
     public IActionResult CreateAppUser()
     {
         return View("CreateAppUser");
