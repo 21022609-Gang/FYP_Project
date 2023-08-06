@@ -1,25 +1,93 @@
-﻿<head>
+﻿@model JobListing
+
+<head>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>Job</title>
     <style>
+        /* Add CSS styles here */
         .container3Split {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .section {
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .section-1 {
+            flex: 1 0 30%; 
+        }
+
+        .section-2 {
+            flex: 1 0 50%; 
+        }
+
+        .section-3 {
+            flex: 1 0 20%; 
+        }
+
+        .lih {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .inputTxt {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 8px;
+            width: calc(100% + 30px);
+            height: 35px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+
+        .submitbtn {
+            font-family: 'Inter', sans-serif;
+            width: calc(100% + 50px);
+            height: 35px;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            background-color: #1574d2;
         }
     </style>
 </head>
 
 <body>
     <partial name="_NavBar" />
+    <div class="ul" style="padding:5px; position:center">
+        <div class="li lih" style="margin-left:60px">
+            <input class="inputTxt" placeholder="Search for Jobs" />
+        </div>
+        <div class="li lih" style="margin-left:120px">
+            <select id="Location" asp-for="Location"
+                    class="form-select form-select-sm inputTxt"
+                    asp-items="@((IEnumerable<SelectListItem>)ViewData["LocationList"]!)">
+                    <option value="">-- Select a Location to Filter By --</option>
+            </select>
+        </div>
+        <div class="li lih" style="margin-left:120px">
+            <input class="inputTxt" placeholder="Job Title/ Keyword" />
+        </div>
+        <div class="li lih" style="margin-left:120px;" >
+        <input type="submit" value="Search"
+                class="btn btn-primary submitbtn" />
+        </div>
+    </div>
     <div class="container3Split">
-        <div>
+        <div class="section-1 section">
             Test1
         </div>
-        <div>
+        <div class="section-2 section">
             Test2
         </div>
-        <div>
+        <div class="section-3 section">
             Test3
         </div>
     </div>
