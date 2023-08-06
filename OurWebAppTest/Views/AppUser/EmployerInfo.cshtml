@@ -52,12 +52,14 @@
             <form asp-controller="AppUser" asp-action="CreateEmployerAccount" method="post">
                 <div style="padding: 10px">
                     <label>Name</label>
-                    <input class="inputTxt" type="text" placeholder="Name" />
+                    <input class="inputTxt" type="text" placeholder="Name" 
+                        value="@TempData["Name"]" readonly/>
                 </div>
 
                 <div style="padding: 10px">
                     <label>Contact Information</label>
-                    <input class="inputTxt" type="text" placeholder="Contact Information" />
+                    <input class="inputTxt" type="text" placeholder="Contact Information"
+                           value="@TempData["ContactInfo"]" readonly/>
                 </div>
 
                 <div class="containerSplit">
@@ -78,7 +80,7 @@
                                     <option value="">-- Select a Industry --</option>
                             </select>
                             <span asp-validation-for="Industry"
-                                  style=" color:red;font-weight:bold;"></span>s
+                                  style=" color:red;font-weight:bold;"></span>
                         </div>
                     </div>
                 </div>
@@ -96,7 +98,6 @@
             <div>
                 @TempData["Msg"]
             </div>
-            <a asp-controller="AppUser" asp-action="CreateAppUser2">sign up page 2</a>
         </div>
     </div>
 

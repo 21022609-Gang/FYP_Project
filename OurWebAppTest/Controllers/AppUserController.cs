@@ -220,14 +220,14 @@ public class AppUserController : Controller
             {
                 ModelState.AddModelError("Email", "Email has already been registered");
                 TempData["Msg"] = DBUtl.DB_Message;
-                return View("CreateAppUser");
+                return View("CreateAppUserEmployer");
             }
 
             TempData["FName"] = user.FirstName;
             TempData["LName"] = user.LastName;
             TempData["Email"] = user.Email;
             TempData["Password"] = user.Password;
-            return RedirectToAction("CreateAppUser2");
+            return RedirectToAction("CreateAppUserEmployer2");
         }
         else
         {
@@ -248,7 +248,7 @@ public class AppUserController : Controller
             TempData["msg"] = errorMessageBuilder.ToString();
             */
 
-            return View("CreateAppUser");
+            return View("CreateAppUserEmployer");
         }
 
     }
@@ -333,9 +333,9 @@ public class AppUserController : Controller
                 return View("CreateAppUserEmployer2");
             }
             else
-            {
-
-
+            { //success
+                TempData["NameOg"] = FName + " " + LName;
+                TempData["ContactInfoOg"] = user.ContactInfo;
                 return RedirectToAction("CreateEmployerAccount");
             }
 
@@ -382,11 +382,23 @@ public class AppUserController : Controller
 
         ViewData["Industry"] = new SelectList(industries, "Value", "Text");
 
+        TempData["Name"] = TempData["NameOg"];
+        TempData["ContactInfo"] = TempData["ContactInfoOg"];
+
         return View("EmployerInfo");
     }
 
+    [HttpPost]
     public IActionResult CreateEmployerAccount(Employer employer)
     {
+        if (TempData["Name2"] != null)
+        {
+            TempData["Name"] = TempData["Name2"];
+            TempData["ContactInfo"] = TempData["ContactInfo2"];
+        }
+
+        TempData["Name2"] = TempData["Name"];
+        TempData["ContactInfo2"] = TempData["ContactInfo"];
 
         return View("EmployerInfo");
     }
