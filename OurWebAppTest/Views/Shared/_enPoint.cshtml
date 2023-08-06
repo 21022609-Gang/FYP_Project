@@ -1,0 +1,51 @@
+﻿
+<head>
+    <style>
+        .sitemap-container {
+            flex: 0 0 auto;
+            background-color: #ECECE9;
+            text-align: center;
+            padding: 20px;
+        }
+
+            .sitemap-container h2 {
+                font-size: 48px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #000;
+            }
+
+            .sitemap-container ul {
+                list-style-type: none;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .sitemap-container li {
+                font-size: 18px;
+                line-height: 1.5;
+                margin: 0 10px;
+            }
+
+    </style>
+</head>
+
+<div class="sitemap-container">
+    <h2>Sitemap</h2>
+    <div class="sitemap-content">
+        <ul>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a asp-controller="Job" asp-action="JobPage">Jobs</a></li>
+            <li><a asp-controller="AppUser" asp-action="LoginAppUser">Login</a></li>
+            <li><a asp-controller="AppUser" asp-action="CreateAppUser">Sign Up</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a asp-controller="AppUser" asp-action="TaC">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Data Protection Policy</a></li>
+        </ul>
+    </div>
+</div>

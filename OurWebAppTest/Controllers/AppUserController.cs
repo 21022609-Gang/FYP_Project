@@ -167,7 +167,7 @@ public class AppUserController : Controller
             }
             else
             {
-                return View("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
         }
@@ -406,7 +406,7 @@ public class AppUserController : Controller
             if(DBUtl.ExecSQL(sqlFor) == 1)
             {// success
 
-                return View("Home", "Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

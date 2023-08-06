@@ -18,6 +18,11 @@ namespace OurWebAppTest.Controllers
             return View();
         }
 
+        public IActionResult AboutUs()
+        {
+            return View("AboutUs");
+        }
+
         public IActionResult Privacy()
         {
             return View();
