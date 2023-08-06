@@ -52,14 +52,16 @@
             <form asp-controller="AppUser" asp-action="CreateEmployerAccount" method="post">
                 <div style="padding: 10px">
                     <label>Name</label>
-                    <input class="inputTxt" type="text" placeholder="Name" 
+                    <input class="inputTxt" type="text" id="name" placeholder="Name" 
                         value="@TempData["Name"]" readonly/>
+                    <input type="hidden" name="name" value="@TempData["Name"]" />
                 </div>
 
                 <div style="padding: 10px">
                     <label>Contact Information</label>
-                    <input class="inputTxt" type="text" placeholder="Contact Information"
+                    <input class="inputTxt" type="text" id="conIn" placeholder="Contact Information"
                            value="@TempData["ContactInfo"]" readonly/>
+                    <input type="hidden" name="conIn" value="@TempData["ContactInfo"]" />
                 </div>
 
                 <div class="containerSplit">

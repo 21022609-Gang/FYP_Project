@@ -334,8 +334,8 @@ public class AppUserController : Controller
             }
             else
             { //success
-                TempData["Name"] = FName + " " + LName;
-                TempData["ContactInfo"] = user.ContactInfo;
+                TempData["Name3"] = FName + " " + LName;
+                TempData["ContactInfo3"] = user.ContactInfo;
                 return RedirectToAction("CreateEmployerAccount");
             }
 
@@ -382,27 +382,38 @@ public class AppUserController : Controller
 
         ViewData["Industry"] = new SelectList(industries, "Value", "Text");
 
+        TempData["Name"] = TempData["Name3"];
+        TempData["ContactInfo"] = TempData["ContactInfo3"];
+
         return View("EmployerInfo");
     }
 
     [HttpPost]
-    public IActionResult CreateEmployerAccount(Employer employer)
+    public IActionResult CreateEmployerAccount(Employer employer, string name, string conIn)
     {
+
         var helper = new Helper(ModelState);
 
-        if (TempData["Name2"] != null)
-        {
-            TempData["Name"] = TempData["Name2"];
-            TempData["ContactInfo"] = TempData["ContactInfo2"];
-        }
-
-        string? Name = TempData["Name"] as string;
-        string? ContactInfo = TempData["ContactInfo"] as string;
 
         if (helper.ValidatePart(nameof(Employer.Industry)) &&
             helper.ValidatePart(nameof(Employer.CompanyName)) )
         {
-            return View("Index", "Home");
+            string sql = @"INSERT INTO Employer (CompanyName, industry, ContactInfo, Name)
+                            VALUES ('{0}', '{1}', '{2}', '{3}');";
+
+            string sqlFor = string.Format(sql, employer.CompanyName, employer.Industry, name, conIn);
+
+            if(DBUtl.ExecSQL(sqlFor) == 1)
+            {// success
+
+                return View("Home", "Index");
+            }
+            else
+            {
+                TempData["Msg"] = DBUtl.DB_Message;
+                return View("EmployerInfo");
+            }
+            
         }
         else
         {
@@ -420,9 +431,8 @@ public class AppUserController : Controller
             };
 
             ViewData["Industry"] = new SelectList(industries, "Value", "Text");
-            TempData["Name2"] = TempData["Name"] as string;
-            TempData["ContactInfo2"] = TempData["ContactInfo"] as string;
-
+            TempData["Name"] = name;
+            TempData["ContactInfo"] = conIn;
             return View("EmployerInfo");
         }
         
