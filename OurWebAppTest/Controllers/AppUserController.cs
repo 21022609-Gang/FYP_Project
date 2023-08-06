@@ -27,11 +27,6 @@ public class AppUserController : Controller
         return View("TaC");
     }
 
-    public IActionResult Welcome()
-    {
-        return View("Home/Welcome");
-    }
-
     public IActionResult CreateAppUser()
     {
         return View("CreateAppUser");
@@ -234,7 +229,7 @@ public class AppUserController : Controller
         if (ModelState.IsValid)
         {
             string sql = @"SELECT * FROM `AppUser` 
-                WHERE Email = '"+email+"' AND PASSWORD = '"+password+"'";
+                WHERE Email = '"+email+"' AND Password = '"+password+"'";
             DataTable check = DBUtl.GetTable(sql);
             if(check.Rows.Count == 1)
             {
