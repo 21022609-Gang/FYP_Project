@@ -114,9 +114,9 @@ public class AppUserController : Controller
         if (TempData["Fname2"] != null)
         {
             TempData["Fname"] = TempData["Fname2"];
-            TempData["LName2"] = TempData["LName"] as string;
-            TempData["Email2"] = TempData["Email"] as string;
-            TempData["Password2"] = TempData["Password"] as string;
+            TempData["LName"] = TempData["LName2"] as string;
+            TempData["Email"] = TempData["Email2"] as string;
+            TempData["Password"] = TempData["Password2"] as string;
         }
 
         string? FName = TempData["FName"] as string;
@@ -152,7 +152,7 @@ public class AppUserController : Controller
             int age = helper.CalcAge(user.Dob);
 
             string sql = @"INSERT INTO AppUser (FirstName, LastName, Email, Password
-                            , DOB, Age, HighestEdu, ContactInfo, Consent)
+                            , DOB, Age, HighestEdu, ContactInfo, Consent, UserRole)
                             VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}', '{7}', {8}, '{9}');";
 
             string sqlFormat = string.Format(sql, FName, LName, Email, Password,
@@ -282,9 +282,9 @@ public class AppUserController : Controller
         if (TempData["Fname2"] != null)
         {
             TempData["Fname"] = TempData["Fname2"];
-            TempData["LName2"] = TempData["LName"] as string;
-            TempData["Email2"] = TempData["Email"] as string;
-            TempData["Password2"] = TempData["Password"] as string;
+            TempData["LName"] = TempData["LName2"] as string;
+            TempData["Email"] = TempData["Email2"] as string;
+            TempData["Password"] = TempData["Password2"] as string;
         }
 
         string? FName = TempData["FName"] as string;
@@ -334,8 +334,8 @@ public class AppUserController : Controller
             }
             else
             { //success
-                TempData["NameOg"] = FName + " " + LName;
-                TempData["ContactInfoOg"] = user.ContactInfo;
+                TempData["Name"] = FName + " " + LName;
+                TempData["ContactInfo"] = user.ContactInfo;
                 return RedirectToAction("CreateEmployerAccount");
             }
 
@@ -382,25 +382,50 @@ public class AppUserController : Controller
 
         ViewData["Industry"] = new SelectList(industries, "Value", "Text");
 
-        TempData["Name"] = TempData["NameOg"];
-        TempData["ContactInfo"] = TempData["ContactInfoOg"];
-
         return View("EmployerInfo");
     }
 
     [HttpPost]
     public IActionResult CreateEmployerAccount(Employer employer)
     {
+        var helper = new Helper(ModelState);
+
         if (TempData["Name2"] != null)
         {
             TempData["Name"] = TempData["Name2"];
             TempData["ContactInfo"] = TempData["ContactInfo2"];
         }
 
-        TempData["Name2"] = TempData["Name"];
-        TempData["ContactInfo2"] = TempData["ContactInfo"];
+        string? Name = TempData["Name"] as string;
+        string? ContactInfo = TempData["ContactInfo"] as string;
 
-        return View("EmployerInfo");
+        if (helper.ValidatePart(nameof(Employer.Industry)) &&
+            helper.ValidatePart(nameof(Employer.CompanyName)) )
+        {
+            return View("Index", "Home");
+        }
+        else
+        {
+            List<SelectListItem> industries = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "IT", Text = "IT" },
+                new SelectListItem { Value = "Healthcare", Text = "Healthcare" },
+                new SelectListItem { Value = "Finance", Text = "Finance" },
+                new SelectListItem { Value = "Education", Text = "Education" },
+                new SelectListItem { Value = "Retail", Text = "Retail" },
+                new SelectListItem { Value = "Manufacturing", Text = "Manufacturing" },
+                new SelectListItem { Value = "Hospitality", Text = "Hospitality" },
+                new SelectListItem { Value = "Transportation and Logistics", Text = "Transportation and Logistics" },
+                new SelectListItem { Value = "Media and Entertainment", Text = "Media and Entertainment" }
+            };
+
+            ViewData["Industry"] = new SelectList(industries, "Value", "Text");
+            TempData["Name2"] = TempData["Name"] as string;
+            TempData["ContactInfo2"] = TempData["ContactInfo"] as string;
+
+            return View("EmployerInfo");
+        }
+        
     }
 
     public IActionResult LoginAppUser()
