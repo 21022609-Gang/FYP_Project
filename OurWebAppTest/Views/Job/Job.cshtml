@@ -5,29 +5,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>Job</title>
     <style>
-        /* Add CSS styles here */
+
         .container3Split {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
         }
 
+        .containerSplit {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            padding: 10px;
+        }
+
         .section {
             box-sizing: border-box;
             border: 1px solid #ccc;
             padding: 10px;
-        }
-
-        .section-1 {
-            flex: 1 0 30%; 
-        }
-
-        .section-2 {
-            flex: 1 0 50%; 
-        }
-
-        .section-3 {
-            flex: 1 0 20%; 
         }
 
         .lih {
@@ -56,12 +51,53 @@
             color: white;
             background-color: #1574d2;
         }
+
+        .jobListingStuff {
+            padding: 20px;
+            background: lightgrey;
+            margin-bottom:10px;
+            transition: background-color 0.3s;
+        }
+
+            .jobListingStuff:hover {
+                background-color: darkgrey; 
+            }
+
+        .jlTitle {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            color: #9c5bc2;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .jlMiddle {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            color: #3471eb;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .jlOther {
+            font-size: 10px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .jImage {
+            height: 30px;
+            width: 30px;
+            float: right;
+        }
+
     </style>
 </head>
 
-<body>
+<body style="background-color: #dbdbdb;">
     <partial name="_NavBar" />
-    <div class="ul" style="padding:5px; position:center">
+    <div class="ul" style="padding:5px; position:center; background: #ECECE9">
         <div class="li lih" style="margin-left:60px">
             <input class="inputTxt" placeholder="Search for Jobs" />
         </div>
@@ -80,15 +116,46 @@
                 class="btn btn-primary submitbtn" />
         </div>
     </div>
-    <div class="container3Split">
-        <div class="section-1 section">
-            Test1
-        </div>
-        <div class="section-2 section">
-            Test2
-        </div>
-        <div class="section-3 section">
-            Test3
+
+    <div>
+        <div class="container3Split">
+            <div class="section" style="flex: 1 0 5%;">
+                
+            </div>
+            
+            <div class="section" style="flex: 1 0 90%; background:white; padding:20px">
+                @if (ViewData["JobListings"] is List<JobListing> jobListings)
+                {
+                    @foreach (var jobListing in jobListings)
+                    {
+                        <div class="jobListingStuff">
+                            <div class="containerSplit">
+                                <div class="left">
+                                    <span class="jlTitle">@jobListing.Title</span>
+                                    <span class="jlMiddle">Job ID: @jobListing.Job_ID</span>
+                                    <span class="jlOther">Location: @jobListing.Location</span>
+                                    <span class="jlOther">Salary: @jobListing.Salary</span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <img src="/images/JobStuff/Edit2.png" alt="Job Image" class="jImage"
+                                        style="margin-top: 3px;">
+                                    </span>
+                                    <span>
+                                        <img src="/images/JobStuff/delete.png" alt="Job Image" class="jImage">
+                                    </span>
+                                    
+                                </div> 
+                            </div> 
+                        </div>
+                    } 
+                }
+
+            </div>
+            <div class="section" style="flex: 1 0 5%;">
+                
+            </div>
         </div>
     </div>
+    
 </body>

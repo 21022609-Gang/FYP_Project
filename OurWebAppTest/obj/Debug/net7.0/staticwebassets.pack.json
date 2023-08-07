@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\images\\F&B.png"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\JobStuff\\Edit2.png",
+      "PackagePath": "staticwebassets\\images\\JobStuff\\Edit2.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\JobStuff\\delete.png",
+      "PackagePath": "staticwebassets\\images\\JobStuff\\delete.png"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\FYP_Project\\OurWebAppTest\\wwwroot\\images\\Retail.png",
       "PackagePath": "staticwebassets\\images\\Retail.png"
     },

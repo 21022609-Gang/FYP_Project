@@ -5,11 +5,11 @@ namespace OurWebAppTest.Models;
 
 public partial class JobListing
 {
-    public int JobId { get; set; }
+    public int Job_ID { get; set; }
 
-    public int EmployerId { get; set; }
+    public int Employer_ID { get; set; }
 
-    public int UserId { get; set; }
+    public int User_ID { get; set; }
 
     public string? Title { get; set; }
 

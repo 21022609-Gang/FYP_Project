@@ -13,6 +13,16 @@ namespace OurWebAppTest.Controllers
             DataTable ds = DBUtl.GetTable(sql);
             int check = ds.Rows.Count;
 
+            List<JobListing> jobListings = ds.AsEnumerable()
+            .Select(row => new JobListing
+            {
+                Job_ID = row.Field<int>("Job_ID"),
+                Title = row.Field<string>("Title"),
+                Location = row.Field<string>("Location"),
+                Salary = row.Field<int>("Salary"),
+                
+            }).ToList();
+
             List<string?> locations = ds.AsEnumerable()
                 .Select(x => x.Field<string>("Location")).ToList();
 
@@ -24,7 +34,7 @@ namespace OurWebAppTest.Controllers
                 }).ToList();
 
             ViewData["LocationList"] = locationList;
-
+            ViewData["JobListings"] = jobListings;
             return View("Job");
         }
 
