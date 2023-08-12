@@ -50,7 +50,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test' # Run unit tests
-      projects: '/workspaces/FYP_Project/OurWebAppTest/*.csproj' # Project files to test
+      command: '/workspaces/FYP_Project/OurWebAppTest/*.csproj' # Project files to test
       arguments: '--collect "Code Coverage"' # Collect code coverage during testing
 
   - task: SonarCloudAnalyze@1 # SonarCloud analyzing the code
