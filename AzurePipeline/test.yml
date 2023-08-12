@@ -6,7 +6,7 @@ trigger:
 
 # This section defines the schedules for the pipeline
 schedules:
-- cron: "0 19 * * *" # Schedule a daily build at 19:00 UTC (7:00 PM)
+- cron: "* * * * *" # Schedule a daily build at 19:00 UTC (7:00 PM)
   displayName: Daily build
   branches:
     include:
