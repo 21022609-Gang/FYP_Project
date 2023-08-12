@@ -4,14 +4,6 @@ trigger:
     include:
       - main # Trigger the pipeline when changes are pushed to the 'main' branch
 
-# This section defines the schedules for the pipeline
-schedules:
-- cron: "* * * * *" # Schedule a daily build at 19:00 UTC (7:00 PM)
-  displayName: Daily build
-  branches:
-    include:
-      - main # Schedule the daily build for the 'main' branch
-
 # This section specifies the agent pool to run the pipeline
 pool:
   name: 'mycomputeragent' # The agent pool to use for running the pipeline
